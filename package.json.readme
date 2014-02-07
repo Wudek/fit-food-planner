@@ -1,0 +1,12 @@
+Dependencies:
+	express -
+	jade -
+	mongoose - mongodb adapter
+	mongodb -
+	later - job lib: https://github.com/bunkat/later
+	request - http request client lib: https://github.com/mikeal/request
+	cheerio - jquery http requests: https://github.com/MatthewMueller/cheerio
+	lodash - general utils
+	underscore.string - string utils
+	winston - logging lib: https://github.com/flatiron/winston
+	bluebird - promise lib: https://github.com/petkaantonov/bluebird#quick-start
