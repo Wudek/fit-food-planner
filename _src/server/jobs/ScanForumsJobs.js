@@ -5,7 +5,7 @@ var request = require('request');
 var _ = require('lodash');
 var _s = require('underscore.string');
 var utils = require('../utils');
-var logger = require('../../app').logger;
+var logger = require('../.').logger;
 var tradeForumsController = require('../controllers/tradeForumsController');
 
 /**

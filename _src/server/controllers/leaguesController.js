@@ -1,7 +1,7 @@
 'use strict';
 
 var League = require('../models/leagues').League;
-var logger = require('../../app').logger;
+var logger = require('../.').logger;
 var _ = require('lodash');
 
 exports.getLeague = function (name, callback)
