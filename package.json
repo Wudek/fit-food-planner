@@ -2,9 +2,6 @@
   "name": "application-name",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
   "dependencies": {
     "express": "latest",
     "jade": "latest",
@@ -19,7 +16,7 @@
     "bluebird": "latest"
   },
   "devDependencies": {
-    "gulp": "~3.5.2",
-    "gulp-util": "~2.2.14"
+    "gulp": "latest",
+    "gulp-util": "latest"
   }
 }
