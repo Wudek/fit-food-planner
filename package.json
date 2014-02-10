@@ -16,7 +16,21 @@
     "bluebird": "latest"
   },
   "devDependencies": {
-    "gulp": "latest",
-    "gulp-util": "latest"
+    "gulp": "~3.5.2",
+    "bower": "~1.2.8",
+    "gulp-util": "~2.2.14",
+    "gulp-clean": "~0.2.4",
+    "gulp-concat": "~2.1.7",
+    "gulp-footer": "~1.0.3",
+    "gulp-header": "~1.0.2",
+    "gulp-jshint": "~1.4.0",
+    "jshint-stylish": "~0.1.5",
+    "gulp-ngmin": "~0.1.2",
+    "gulp-uglify": "~0.2.1",
+    "gulp-rename": "~1.0.0",
+    "gulp-sass": "~0.6.0",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-jade": "~0.4.1",
+    "gulp-bower": "0.0.2"
   }
 }

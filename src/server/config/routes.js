@@ -3,7 +3,7 @@
 module.exports = function (app)
 {
 
-	var index = require('../server/controllers/index');
+	var index = require('../routes/index');
 	app.get('/', index.index);
 	app.get('/partials/:name', index.partials);
 

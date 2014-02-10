@@ -2,10 +2,10 @@
 var cheerio = require('cheerio');
 var request = require('request');
 var _ = require('lodash');
-var leaguesController = require('./controllers/leaguesController');
-var PopulateForumsJob = require('./jobs/PopulateForumsJob').PopulateForumsJob;
-var ScanForumsJob = require('./jobs/ScanForumsJobs').ScanForumsJobs;
-var ClearDBJob = require('./jobs/ClearDBJob').ClearDBJob;
+var leaguesController = require('./leaguesController');
+var PopulateForumsJob = require('./PopulateForumsJob').PopulateForumsJob;
+var ScanForumsJob = require('./ScanForumsJobs').ScanForumsJobs;
+var ClearDBJob = require('./ClearDBJob').ClearDBJob;
 
 module.exports.populateForums = function()
 {

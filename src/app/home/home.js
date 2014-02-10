@@ -1,6 +1,3 @@
-/*global angular:false */
-'use strict';
-
 angular.module( 'ngBoilerplate', [
 		'ui.state',
 		'placeholders',
@@ -9,19 +6,17 @@ angular.module( 'ngBoilerplate', [
 
 	.config(function config( $stateProvider ) {
 		$stateProvider.state( 'about', {
-			url: '/about',
+			url: '/home',
 			views: {
-				"main": {
-					controller: 'AboutCtrl',
-					templateUrl: 'about/about.tpl.html'
+				'main': {
+					controller: 'HomeCtrl'
 				}
 			},
-			data:{ pageTitle: 'What is It?' }
+			data:{ pageTitle: 'Home' }
 		});
 	})
 
-	.controller( 'AboutCtrl', function AboutCtrl( $scope ) {
-		// This is simple a demo for UI Boostrap.
+	.controller( 'HomeCtrl', function AboutCtrl( $scope ) {
 		$scope.dropdownDemoItems = [
 			'The first choice!',
 			'And another choice for you.',

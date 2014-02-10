@@ -1,6 +1,3 @@
-/*global angular:false */
-'use strict';
-
 angular.module( 'ngBoilerplate', [
 		'ui.state',
 		'placeholders',
@@ -11,7 +8,7 @@ angular.module( 'ngBoilerplate', [
 		$stateProvider.state( 'about', {
 			url: '/about',
 			views: {
-				"main": {
+				'main': {
 					controller: 'AboutCtrl',
 					templateUrl: 'about/about.tpl.html'
 				}

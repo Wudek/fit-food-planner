@@ -16,7 +16,7 @@ module.exports = function (app)
 	}
 
 	//Set views path, template engine and default layout
-	app.set('views', config.root + '/views');
+	app.set('views', config.root + '\\app');
 	app.set('view engine', 'jade');
 
 	//Enable jsonp
@@ -55,7 +55,7 @@ module.exports = function (app)
 
 		//Setting the fav icon and static folder
 		app.use(express.favicon());
-		app.use(express.static(config.root + '/public'));
+		app.use(express.static(config.root + '/src/app'));
 
 		//Assume "not found" in the error msgs is a 404. this is somewhat silly, but valid, you can do whatever you like
 		//		app.use(function(err, req, res, next) {

@@ -1,7 +1,7 @@
 'use strict';
 
-var TradeForum = require('../models/tradeForums').TradeForum;
-var logger = require('../.').logger;
+var TradeForum = require('./tradeForums').TradeForum;
+var logger = require('../src/server').logger;
 var _ = require('lodash');
 var _s = require('underscore.string');
 

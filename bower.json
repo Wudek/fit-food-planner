@@ -1,0 +1,12 @@
+{
+	"name" : "ffp",
+	"version" : "0.0.1",
+	"devDependencies" : {
+		"angular" : "latest",
+		"angular-route" : "latest",
+		"angular-resource" : "latest",
+		"jquery" : "latest",
+		"modernizr" : "latest"
+	},
+	"dependencies" : {}
+}

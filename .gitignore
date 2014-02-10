@@ -1,6 +1,8 @@
 .DS_Store
 .nodemonignore
 .sass-cache/
-node_modules/
-coverage
 .idea
+node_modules/
+coverage/
+build/
+bower_components/

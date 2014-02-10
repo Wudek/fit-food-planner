@@ -8,7 +8,7 @@ module.exports.initialize = function()
 	{
 		var config = require('./config');
 		var mongoose = require('mongoose');
-		var logger = require('../app').logger;
+		var logger = require('../server').logger;
 
 		logger.info('Connection initiated to database');
 

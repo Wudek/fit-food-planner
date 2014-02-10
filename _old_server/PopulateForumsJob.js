@@ -4,8 +4,8 @@ var cheerio = require('cheerio');
 var request = require('request');
 var _ = require('lodash');
 var _s = require('underscore.string');
-var logger = require('../.').logger;
-var utils = require('../utils');
+var logger = require('../src/server').logger;
+var utils = require('../src/server/utils');
 var leaguesController = require('../controllers/leaguesController');
 var tradeForumsController = require('../controllers/tradeForumsController');
 
