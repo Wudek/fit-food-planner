@@ -3,17 +3,16 @@ extends layout
 block content
 	nav.top-bar(data-topbar)
 		ul.title-area
-			li.name: h1: a(href="#") My Site
+			li.name: h1: a(href="#")
+				i.fi-home
+				span FFP
 			li.toggle-topbar.menu-icon: a(href="#"): span Menu
 		section.top-bar-section: ul.right
-			li: a(href='#')
-				i.fi-home
-				span Home
-			li: a(href='#/items')
-				i.fi-list
-				span Items
-			li: a(href='#/login')
-				i.fi-torsos
-				span Login
+			li: a(href='#/clients')
+				i.fi-torsos-all
+				span Clients
+			li: a(href='#/about')
+				i.fi-at-sign
+				span About
 
 	div(ng-view, ng-controller="AppCtrl")

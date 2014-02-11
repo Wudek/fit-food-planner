@@ -1,19 +1,19 @@
 doctype html
-html(ng-app='myApp')
+html(ng-app='ffp')
 	head
 		title= title
-		link(rel='stylesheet', href='lib/foundation.min.css')
+		link(rel='stylesheet', href='lib/foundation.css')
 		link(rel='stylesheet', href='lib/foundation-icons.css')
 		link(rel='stylesheet', href='style.css')
 		script(src='lib/modernizr.js')
 	body
 		block content
 
-		script(src='lib/jquery.min.js')
-		script(src='lib/foundation.min.js')
+		script(src='lib/jquery.js')
+		script(src='lib/foundation.js')
 		script.
 			$(document).foundation();
-		script(src='lib/angular.min.js')
-		script(src='lib/angular-resource.min.js')
-		script(src='lib/angular-route.min.js')
+		script(src='lib/angular.js')
+		script(src='lib/angular-resource.js')
+		script(src='lib/angular-route.js')
 		script(src='app.js')

@@ -65,13 +65,13 @@ gulp.task('bower', function(){
 	return bower();
 });
 
-gulp.task('vendor_combine', ['bower'], function(){
-	return gulp.src(_.union(config.bowerFiles, config.vendorFiles))
+gulp.task('vendor_merge', ['bower'], function(){
+	return gulp.src(config.bowerFiles_dev)
 		.pipe(flatten())
 		.pipe(gulp.dest(config.libDirectory));
 });
 
-gulp.task('vendor', ['vendor_combine'], function(){
+gulp.task('vendor', ['vendor_merge'], function(){
 	return gulp.src('bower_components', {read: false})
 		.pipe(clean());
 });

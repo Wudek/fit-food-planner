@@ -1,8 +1,6 @@
-angular.module( 'home', [])
-
+angular.module( 'clients', [])
 	.config(function() {})
-
-	.controller( 'HomeCtrl', function ( $scope ) {
+	.controller( 'ClientsCtrl', function ( $scope ) {
 		$scope.dropdownDemoItems = [
 			'The first choice!',
 			'And another choice for you.',

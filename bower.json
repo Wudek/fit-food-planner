@@ -6,7 +6,9 @@
 		"angular-route" : "latest",
 		"angular-resource" : "latest",
 		"jquery" : "latest",
-		"modernizr" : "latest"
+		"modernizr" : "latest",
+		"foundation" : "latest",
+		"foundation-icon-fonts" : "latest"
 	},
 	"dependencies" : {}
 }
