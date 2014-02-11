@@ -23,6 +23,7 @@ var sass = require('gulp-sass');
 var minifyCSS = require('gulp-minify-css');
 var jade = require('gulp-jade');
 var bower = require('gulp-bower');
+var flatten = require('gulp-flatten');
 var _ = require('lodash');
 
 var config = require('./gulp.config.js');
@@ -45,7 +46,7 @@ gulp.task('appScripts', function(){
 		.pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('appStyles', function(){
+gulp.task('styles', function(){
 	gulp.src(config.appFiles.sass)
 		.pipe(sass())
 		.pipe(concat(config.appStyleResultFile))
@@ -53,45 +54,35 @@ gulp.task('appStyles', function(){
 		.pipe(gulp.dest(config.buildDirectory));
 });
 
-gulp.task('appJade', function(){
+gulp.task('views', function(){
 
 	gulp.src(config.appFiles.jade)
-//		.pipe(jade())
-		.pipe(jade({pretty:true}))
-		.pipe(gulp.dest(config.buildDirectory));
+		.pipe(flatten())
+		.pipe(gulp.dest(config.viewsDirectory));
 });
 
-gulp.task('vendor_get', function(){
+gulp.task('bower', function(){
 	return bower();
 });
 
-gulp.task('vendor_combine', ['vendor_get'], function(){
-	var prefix = config.libFiles.js_prefix;
-	var concatFiles = _(config.libFiles.js).map(
-		function(file){
-			console.log(prefix + file);
-			return prefix + file;
-		}
-	);
-
-	console.log(concatFiles);
-	var srcFiles = ['bower_components/**/*.min.js', 'bower_components/**/*.min.js.map', '!**jquery-migrate*', 'bower_components/**/modernizr.js', '!**test*'];
-	return gulp.src(srcFiles).
-		pipe(gulp.dest(config.libDirectory));
+gulp.task('vendor_combine', ['bower'], function(){
+	return gulp.src(_.union(config.bowerFiles, config.vendorFiles))
+		.pipe(flatten())
+		.pipe(gulp.dest(config.libDirectory));
 });
 
-gulp.task('vendor_clean', ['vendor_combine'], function(){
+gulp.task('vendor', ['vendor_combine'], function(){
 	return gulp.src('bower_components', {read: false})
 		.pipe(clean());
 });
 
-gulp.task('watch', function(){
-//	gulp.watch(config.appFiles.js, ['appScripts']);
-//	gulp.watch(config.appFiles.sass, ['appStyles']);
-//	gulp.watch(config.appFiles.jade, ['appJade']);
+gulp.task('watch', ['vendor'], function(){
+	gulp.watch(config.appFiles.js, ['appScripts']);
+	gulp.watch(config.appFiles.sass, ['styles']);
+	gulp.watch(config.appFiles.jade, ['views']);
 });
 
 gulp.task('default', ['clean'], function(){
-	gulp.start('vendor_get', 'vendor_combine', 'appScripts', 'appStyles', 'appJade', 'watch');
+	gulp.start('vendor', 'appScripts', 'styles', 'views', 'watch');
 });
 
