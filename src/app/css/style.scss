@@ -1,12 +1,12 @@
 @import "colors";
 
-.test {
-  color: $blue;
-}
-
 nav{
   i{
     padding-left: 5px;
     padding-right: 5px;
   }
+}
+
+#content{
+  padding: 10px;
 }

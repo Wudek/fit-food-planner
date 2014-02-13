@@ -13,7 +13,7 @@ function startServer()
 	require('./config/routes')(app);
 
 	//Start express
-	var port = process.env.PORT || require('./config/config').port;
+	var port = require('./config/config').port;
 	app.listen(port);
 	logger.info('Server started on port ' + port);
 }
