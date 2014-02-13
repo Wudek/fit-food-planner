@@ -48,7 +48,7 @@ gulp.task('appScripts', function(){
 
 gulp.task('styles', function(){
 	gulp.src(config.appFiles.sass)
-		.pipe(sass())
+		.pipe(sass({errLogToConsole: true}))
 		.pipe(concat(config.appStyleResultFile))
 //		.pipe(minifyCSS())
 		.pipe(gulp.dest(config.buildDirectory));

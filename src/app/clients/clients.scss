@@ -1,0 +1,13 @@
+#clientList
+{
+  list-style: none;
+  li a
+  {
+    display: flex;
+    align-items: center;
+  }
+  li a i {
+    margin-right: 5px;
+    font-size: 2em;
+  }
+}
