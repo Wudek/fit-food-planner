@@ -1,14 +1,17 @@
 angular.module( 'ffp',[
 		'ngRoute',
+		'services',
 		'home',
-		'about'])
+		'about',
+		'clients'])
 
 	.config( function ( $routeProvider) {
 		$routeProvider
-			.when('/:name',{templateUrl:function(parameters)
-			{
-				return '/partials/' + parameters.name;
-			}})
+			.when('/:name',{
+				templateUrl:function(parameters)
+				{
+					return '/partials/' + parameters.name;
+				}})
 			.otherwise({redirectTo:'/home'});
 	})
 
