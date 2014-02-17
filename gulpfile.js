@@ -86,3 +86,8 @@ gulp.task('default', ['clean'], function(){
 	gulp.start('vendor', 'appScripts', 'styles', 'views', 'watch');
 });
 
+gulp.task('default2', ['clean'], function(){
+	//No post cleanup and no watching
+	gulp.start('vendor_merge', 'appScripts', 'styles', 'views');
+});
+

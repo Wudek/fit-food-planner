@@ -34,7 +34,7 @@ module.exports = {
 		'bower_components/foundation-icon-fonts/foundation-icons.svg',
 		'bower_components/foundation-icon-fonts/foundation-icons.ttf',
 		'bower_components/foundation-icon-fonts/foundation-icons.woff',
-		'bower_components/jquery/jquery.js',
+		'bower_components/jquery/dist/jquery.js',
 		'bower_components/jquery.cookie/jquery.cookie.js',
 		'bower_components/jquery-placeholder/jquery.placeholder.js',
 		'bower_components/lodash/dist/lodash.js',

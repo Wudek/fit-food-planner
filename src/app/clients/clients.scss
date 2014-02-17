@@ -8,6 +8,13 @@
   }
   li a i {
     margin-right: 5px;
-    font-size: 2em;
+    font-size: 2rem;
+  }
+  li a span {
+    display: flex;
+    align-items: center;
+  }
+  li a span *{
+    margin: 0.5rem;
   }
 }

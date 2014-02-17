@@ -4,13 +4,29 @@ div(ng-controller="ClientsCtrl")
 			.panel.radius
 				h2 Clients
 				p Clients Description
-
 	.row
 		.large-3.columns
-			.panel.radius
-				h4 Search
-				input
-				button(ng-click='addRandom()') Add Random
+			button(ng-click='addRandom()') Add Random (temp)
+	.row
+		.large-3.columns
+			form.panel.radius
+				.row
+					.large-12.columns
+						input(type='text', placeholder='Name')
+				.row
+					.large-12.columns
+						input#maleCheckbox(type='checkbox', checked)
+						label(for='maleCheckbox') Male
+						input#femaleCheckbox(type='checkbox', checked)
+						label(for='femaleCheckbox') Female
+				.row
+					.large-12.columns
+						label Category
+						select
+							option All
+				.row
+					.large-12.columns.rightalignchildren
+						button.tiny Clear
 
 		.large-9.columns
 			ul#clientList
@@ -19,30 +35,6 @@ div(ng-controller="ClientsCtrl")
 						i.fi-male(ng-if='client.isMale')
 						i.fi-female(ng-if='!client.isMale')
 						span {{client.name}}
-				//li
-				//	a(href="/something")
-				//		i.fi-male
-				//		span John doe
-				//li
-				//	a#test(href="/something")
-				//		i.fi-female
-				//		span Jane Doe
-				//li
-				//	a#test(href="/something")
-				//		i.fi-male
-				//		span Bob
-
-		//.large-12.columns
-		//	p {{helloWorld}}
-//.row
-//	.large-12.columns
-//		table: tbody
-//			tr
-//				td John Doe
-//				td 'goal'
-//			tr
-//				td Jane Doe
-//				td 'goal'
-//			tr
-//				td Bob
-//				td 'goal'
+							span.radius.label(ng-if='client.category') {{client.category}}
+							span.radius.label {{client.weight}} lbs
+							span.radius.label {{client.height}} cm

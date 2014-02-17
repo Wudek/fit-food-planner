@@ -3,6 +3,7 @@ angular.module('services', []).
 		function()
 		{
 			var clients = [];
+			var clientCategories = [];
 
 			var randomMaleName = function()
 			{
@@ -14,11 +15,19 @@ angular.module('services', []).
 				return _.sample(['Jane Doe', 'Katie Holmes']);
 			};
 
-			var createClient = function(name, isMale)
+			var randomCategory = function()
+			{
+				return _.sample(['', 'Fat Loss']);
+			};
+
+			var createClient = function(name, isMale, category)
 			{
 				return {
 						name: name,
-						isMale: isMale
+						isMale: isMale,
+						category: category,
+						height: 0,
+						weight: 0
 					};
 			};
 
@@ -29,12 +38,12 @@ angular.module('services', []).
 
 			var addRandomMaleClient = function()
 			{
-				addClient(createClient(randomMaleName(), true));
+				addClient(createClient(randomMaleName(), true, randomCategory()));
 			};
 
 			var addRandomFemaleClient = function()
 			{
-				addClient(createClient(randomFemaleName(), false));
+				addClient(createClient(randomFemaleName(), false, randomCategory()));
 			};
 
 			var addRandomClient = function()
@@ -50,6 +59,7 @@ angular.module('services', []).
 
 			return	{
 				getClients: function(){return clients;},
+				getClientCategories: function(){return clientCategories;},
 				addClient: addClient,
 				addRandom: addRandomClient
 			};
