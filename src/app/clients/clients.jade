@@ -12,25 +12,25 @@ div(ng-controller="ClientsCtrl")
 			form.panel.radius
 				.row
 					.large-12.columns
-						input(type='text', placeholder='Name')
+						input(type='text', placeholder='Name', ng-model='filter.name')
 				.row
 					.large-12.columns
-						input#maleCheckbox(type='checkbox', checked)
+						input#maleCheckbox(type='checkbox', ng-checked='filter.isMale', ng-model='filter.isMale')
 						label(for='maleCheckbox') Male
-						input#femaleCheckbox(type='checkbox', checked)
+						input#femaleCheckbox(type='checkbox', ng-checked='filter.isFemale', ng-model='filter.isFemale')
 						label(for='femaleCheckbox') Female
 				.row
 					.large-12.columns
 						label Category
-						select
-							option All
+						select(ng-model='filter.category', ng-options='category for category in categories')
+							option(value='') All
 				.row
 					.large-12.columns.rightalignchildren
-						button.tiny Clear
+						button.tiny(ng-click='clearFilter()') Clear
 
 		.large-9.columns
 			ul#clientList
-				li(ng-repeat='client in clients')
+				li(ng-repeat='client in filteredClients  =(clients | filter:filterBy())')
 					a(href='/client?{{client.name}}')
 						i.fi-male(ng-if='client.isMale')
 						i.fi-female(ng-if='!client.isMale')
@@ -38,3 +38,5 @@ div(ng-controller="ClientsCtrl")
 							span.radius.label(ng-if='client.category') {{client.category}}
 							span.radius.label {{client.weight}} lbs
 							span.radius.label {{client.height}} cm
+					i.fi-trash
+				li(ng-if='filteredClients.length === 0') No clients

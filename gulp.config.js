@@ -38,5 +38,6 @@ module.exports = {
 		'bower_components/jquery.cookie/jquery.cookie.js',
 		'bower_components/jquery-placeholder/jquery.placeholder.js',
 		'bower_components/lodash/dist/lodash.js',
+		'bower_components/stringjs/lib/string.js',
 		'bower_components/modernizr/modernizr.js']
 };

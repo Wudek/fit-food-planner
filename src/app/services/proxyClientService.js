@@ -3,24 +3,24 @@ angular.module('services', []).
 		function()
 		{
 			var clients = [];
-			var clientCategories = [];
+			var clientCategories = ['Fat Loss', 'Get Big', 'Contest Prep'];
 
-			var randomMaleName = function()
+			function randomMaleName()
 			{
 				return _.sample(['John Doe', 'Bob Ross']);
-			};
+			}
 
-			var randomFemaleName = function()
+			function randomFemaleName()
 			{
 				return _.sample(['Jane Doe', 'Katie Holmes']);
-			};
+			}
 
-			var randomCategory = function()
+			function randomCategory()
 			{
-				return _.sample(['', 'Fat Loss']);
-			};
+				return _.sample(_.union(clientCategories, [null]));
+			}
 
-			var createClient = function(name, isMale, category)
+			function createClient(name, isMale, category)
 			{
 				return {
 						name: name,
@@ -29,29 +29,34 @@ angular.module('services', []).
 						height: 0,
 						weight: 0
 					};
-			};
+			}
 
-			var addClient = function(client)
+
+			function addClient(client)
 			{
 				clients.push(client);
-			};
+			}
 
-			var addRandomMaleClient = function()
+			function modifyClient(client)
+			{
+			}
+
+			function addRandomMaleClient()
 			{
 				addClient(createClient(randomMaleName(), true, randomCategory()));
-			};
+			}
 
-			var addRandomFemaleClient = function()
+			function addRandomFemaleClient()
 			{
 				addClient(createClient(randomFemaleName(), false, randomCategory()));
-			};
+			}
 
-			var addRandomClient = function()
+			function addRandomClient()
 			{
 				Math.random() < 0.5
 					? addRandomMaleClient()
 					: addRandomFemaleClient();
-			};
+			}
 
 			addRandomClient();
 			addRandomClient();

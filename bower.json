@@ -9,7 +9,8 @@
 		"modernizr" : "latest",
 		"foundation" : "latest",
 		"foundation-icon-fonts" : "latest",
-		"lodash" : "latest"
+		"lodash" : "latest",
+		"stringjs" : "latest"
 	},
 	"dependencies" : {}
 }

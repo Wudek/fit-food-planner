@@ -11,7 +11,7 @@
     "request": "latest",
     "cheerio": "latest",
     "lodash": "latest",
-    "underscore.string": "latest",
+	"string": "latest",
     "winston": "latest",
     "bluebird": "latest"
   },
