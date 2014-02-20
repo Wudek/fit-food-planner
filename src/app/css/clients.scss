@@ -1,0 +1,51 @@
+@import 'variables';
+
+#clientList
+{
+  list-style: none;
+  li
+  {
+    display: flex;
+    margin-bottom: 0.5rem;
+  }
+}
+
+#clientListContent
+{
+  flex-grow: 10;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  line-height: 0.1rem;
+  border: 0.1rem solid $silver;
+  -webkit-transition: border-color .3s ease-in-out;
+  transition:         border-color .3s ease-in-out;
+  i {
+    margin-right: 5px;
+    font-size: 2rem;
+  }
+  span {
+    display: flex;
+    align-items: center;
+  }
+  span *{
+    margin: 0.5rem;
+  }
+}
+
+#clientListContent:hover
+{
+  border-color: $blue;
+  -webkit-transition: border-color .3s ease-in-out;
+  transition:         border-color .3s ease-in-out;
+}
+
+#clientListDelete
+{
+  display: flex;
+  align-items: center;
+  i{
+    margin   : 0.6rem 1.0rem;
+    font-size: 2rem;
+  }
+}
