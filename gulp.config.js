@@ -5,7 +5,7 @@ module.exports = {
 	appFiles : {
 		js: ['src/app/**/*.js','!src/app/**/*.spec.js'],
 		jade:['src/app/**/*.jade'],
-		sass:['src/app/**/*.scss', '!src/app/css/colors.scss', '!src/app/css/links.scss', '!src/app/css/skins.scss', '!src/app/css/variables.scss']
+		sass:['src/app/**/*.scss', '!src/app/css/links.scss', '!src/app/css/skins.scss', '!src/app/css/variables.scss']
 	},
 	appPrefixFile: 'app.prefix',
 	appSuffixFile: 'app.suffix',

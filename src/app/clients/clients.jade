@@ -31,12 +31,13 @@ div(ng-controller="ClientsCtrl")
 		.large-9.columns
 			ul#clientList
 				li(ng-repeat='client in filteredClients  =(clients | filter:filterBy())')
-					a(href='/client?{{client.name}}')
+					a#clientListContent(href='/client?{{client.name}}')
 						i.fi-male(ng-if='client.isMale')
 						i.fi-female(ng-if='!client.isMale')
 						span {{client.name}}
 							span.radius.label(ng-if='client.category') {{client.category}}
 							span.radius.label {{client.weight}} lbs
 							span.radius.label {{client.height}} cm
-					i.fi-trash
+					a#clientListDelete(ng-click='removeClient(client)')
+						i.fi-trash
 				li(ng-if='filteredClients.length === 0') No clients

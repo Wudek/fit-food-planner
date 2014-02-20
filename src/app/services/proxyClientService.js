@@ -5,6 +5,12 @@ angular.module('services', []).
 			var clients = [];
 			var clientCategories = ['Fat Loss', 'Get Big', 'Contest Prep'];
 
+			var id = 0;
+			function createID()
+			{
+				return id++;
+			}
+
 			function randomMaleName()
 			{
 				return _.sample(['John Doe', 'Bob Ross']);
@@ -23,6 +29,7 @@ angular.module('services', []).
 			function createClient(name, isMale, category)
 			{
 				return {
+						id: createID(),
 						name: name,
 						isMale: isMale,
 						category: category,
@@ -35,6 +42,11 @@ angular.module('services', []).
 			function addClient(client)
 			{
 				clients.push(client);
+			}
+
+			function removeClient(client)
+			{
+				_.remove(clients, function(existingClient){return existingClient.id === client.id;});
 			}
 
 			function modifyClient(client)
@@ -66,6 +78,7 @@ angular.module('services', []).
 				getClients: function(){return clients;},
 				getClientCategories: function(){return clientCategories;},
 				addClient: addClient,
+				removeClient: removeClient,
 				addRandom: addRandomClient
 			};
 		});
