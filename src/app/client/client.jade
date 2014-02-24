@@ -1,2 +1,14 @@
 div(ng-controller="ClientCtrl")
-	h1 client
+	.row
+		.large-12.columns
+			img(src='http://placehold.it/100x100')
+			i.fi-male(ng-if='client.isMale')
+			i.fi-female(ng-if='!client.isMale')
+				span {{client.name}}
+					span.radius.label(ng-if='client.category') {{client.category}}
+					span.radius.label {{client.weight}} lbs
+					span.radius.label {{client.height}} cm
+	.row
+		.large-12.columns
+			p(ng-if='isLoading') LOADING
+			p(ng-if='!isLoading') Client Details: {{ clientDetails }}

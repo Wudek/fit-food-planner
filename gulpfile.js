@@ -42,7 +42,8 @@ gulp.task('appScripts', function(){
 		.pipe(header(prefix))
 		.pipe(footer(suffix))
 		.pipe(gulp.dest(config.buildDirectory))
-		.pipe(jshint('.jshintrc'))
+//		.pipe(jshint('.jshintrc'))
+		.pipe(jshint())
 		.pipe(jshint.reporter('jshint-stylish'));
 });
 

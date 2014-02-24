@@ -10,7 +10,8 @@
 		"foundation" : "latest",
 		"foundation-icon-fonts" : "latest",
 		"lodash" : "latest",
-		"stringjs" : "latest"
+		"stringjs" : "latest",
+		"bluebird" : "latest"
 	},
 	"dependencies" : {}
 }

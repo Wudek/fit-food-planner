@@ -1,1 +1,1 @@
-})( window, window.angular, window._, window.S );
+})( window, window.angular, window._, window.S, window.Promise );

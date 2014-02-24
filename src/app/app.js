@@ -11,7 +11,7 @@ angular.module( 'ffp',[
 			.when('/', {templateUrl: '/partials' + '/home'})
 			.when('/clients', {templateUrl: '/partials' + '/clients'})
 			.when('/about', {templateUrl: '/partials' + '/about'})
-			.when('/client', {templateUrl: '/partials' + '/client'})
+			.when('/client/:id', {templateUrl: '/partials' + '/client'})
 			.otherwise({templateUrl: '/partials' + '/404'});
 //			.when('/:name',{
 //				templateUrl:function(parameters)

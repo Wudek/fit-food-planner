@@ -2,10 +2,12 @@ angular.module('services', []).
 	factory( 'proxyClientService',
 		function()
 		{
+			var delay = 1000;
 			var clients = [];
 			var clientCategories = ['Fat Loss', 'Get Big', 'Contest Prep'];
 
 			var id = 0;
+
 			function createID()
 			{
 				return id++;
@@ -34,7 +36,8 @@ angular.module('services', []).
 						isMale: isMale,
 						category: category,
 						height: 0,
-						weight: 0
+						weight: 0,
+						details: {}
 					};
 			}
 
@@ -51,6 +54,30 @@ angular.module('services', []).
 
 			function modifyClient(client)
 			{
+			}
+
+			function getClient(clientID)
+			{
+				return _.find(clients, {'id': clientID});
+			}
+
+			function fetchClientDetails(clientID)
+			{
+				return new Promise(function(resolve, reject)
+				{
+					setTimeout(function()
+					{
+						var result = getClient(clientID);
+						if(result)
+						{
+							resolve(result.details);
+						}
+						else
+						{
+							reject();
+						}
+					}, delay);
+				});
 			}
 
 			function addRandomMaleClient()
@@ -79,6 +106,8 @@ angular.module('services', []).
 				getClientCategories: function(){return clientCategories;},
 				addClient: addClient,
 				removeClient: removeClient,
+				getClient: getClient,
+				fetchClientDetails: fetchClientDetails,
 				addRandom: addRandomClient
 			};
 		});
