@@ -15,4 +15,42 @@ angular.module( 'client', [])
 				$scope.$digest();
 			}
 		);
+
+		$scope.isCurrentDiet = true;
+		$scope.isLikes = false;
+		$scope.isDislikes = false;
+		$scope.isHistory = false;
+
+		$scope.changeToDiet = function()
+		{
+			$scope.isCurrentDiet = true;
+			$scope.isLikes = false;
+			$scope.isDislikes = false;
+			$scope.isHistory = false;
+		};
+
+		$scope.changeToLikes = function()
+		{
+			$scope.isCurrentDiet = false;
+			$scope.isLikes = true;
+			$scope.isDislikes = false;
+			$scope.isHistory = false;
+		};
+
+		$scope.changeToDislikes = function()
+		{
+			$scope.isCurrentDiet = false;
+			$scope.isLikes = false;
+			$scope.isDislikes = true;
+			$scope.isHistory = false;
+		};
+
+		$scope.changeToHistory = function()
+		{
+			$scope.isCurrentDiet = false;
+			$scope.isLikes = false;
+			$scope.isDislikes = false;
+			$scope.isHistory = true;
+		};
+
 	});

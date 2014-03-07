@@ -1,14 +1,32 @@
 div(ng-controller="ClientCtrl")
 	.row
 		.large-12.columns
-			img(src='http://placehold.it/100x100')
-			i.fi-male(ng-if='client.isMale')
-			i.fi-female(ng-if='!client.isMale')
-				span {{client.name}}
-					span.radius.label(ng-if='client.category') {{client.category}}
-					span.radius.label {{client.weight}} lbs
-					span.radius.label {{client.height}} cm
+			#profile
+				#profilepic
+					img(src='http://placehold.it/100x100')
+				#profiledata
+					h1 Bob Ross
+					h3 Contest Prep
+					ul
+						li 170 lbs
+						li 6'1
 	.row
 		.large-12.columns
-			p(ng-if='isLoading') LOADING
-			p(ng-if='!isLoading') Client Details: {{ clientDetails }}
+			dl.sub-nav
+				dd(ng-class='{active: isCurrentDiet}', ng-click='changeToDiet()')
+					a Current Diet
+				dd(ng-class='{active: isLikes}', ng-click='changeToLikes()')
+					a Food Likes
+				dd(ng-class='{active: isDislikes}', ng-click='changeToDislikes()')
+					a Food Dislikes
+				dd(ng-class='{active: isHistory}', ng-click='changeToHistory()')
+					a Diet History
+			h1(ng-if='isCurrentDiet') Current Diet
+			h1(ng-if='isLikes') isLikes
+			h1(ng-if='isDislikes') isDislikes
+			h1(ng-if='isHistory') isHistory
+
+	//.row
+	//	.large-12.columns
+	//		p(ng-if='isLoading') LOADING
+	//		p(ng-if='!isLoading') Client Details: {{ clientDetails }}
