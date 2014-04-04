@@ -1,16 +1,57 @@
 @import 'variables';
+@import 'flex';
+@import '../../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss';
 
-#profile
+.profile
 {
-
+  @extend %flexbox;
+  @include flex-direction(row);
+  @include justify-content(center);
+  @include align-items(baseline);
+  padding: 0.5rem;
+  background-color: $light_gray;
+  border: 0.1rem solid $gray;
+  border-radius: 1rem;
+  margin: 1rem;
 }
 
-#profilepic
+.profile *:first-child
 {
-
+  margin-right: 0.4rem;
 }
 
-#profiledata
+.profile *:not(:last-child):not(:first-child)
 {
+  margin-right: 0.8rem;
+}
 
+.profile i
+{
+  font-size: 2.5rem;
+}
+
+.profile span
+{
+  @include  align-self(center);
+  margin-top: 1rem;
+}
+
+.grid
+{
+  width: 100%;
+  height: 250px;
+}
+
+z-chart
+{
+//  height: 400px;
+//  width: 100%;
+}
+
+.zChart
+{
+//  height: 100%;
+//  width: 100%;
+  height: 35rem;
+  width: 100%;
 }

@@ -7,7 +7,12 @@ exports.index = function (req, res)
 	res.render('index', { title : '' });
 };
 
-exports.partials = function (req, res)
+exports.views = function (req, res)
+{
+	res.render(req.params.name);
+};
+
+exports.directives = function (req, res)
 {
 	res.render(req.params.name);
 };

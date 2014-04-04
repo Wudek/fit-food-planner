@@ -28,17 +28,9 @@ angular.module('services', []).
 				return _.sample(_.union(clientCategories, [null]));
 			}
 
-			function createClient(name, isMale, category)
+			function createClient(name, isMale)
 			{
-				return {
-						id: createID(),
-						name: name,
-						isMale: isMale,
-						category: category,
-						height: 0,
-						weight: 0,
-						details: {}
-					};
+				return new Client(createID(), name, isMale, randomCategory());
 			}
 
 
@@ -82,12 +74,12 @@ angular.module('services', []).
 
 			function addRandomMaleClient()
 			{
-				addClient(createClient(randomMaleName(), true, randomCategory()));
+				addClient(createClient(randomMaleName(), true));
 			}
 
 			function addRandomFemaleClient()
 			{
-				addClient(createClient(randomFemaleName(), false, randomCategory()));
+				addClient(createClient(randomFemaleName(), false));
 			}
 
 			function addRandomClient()

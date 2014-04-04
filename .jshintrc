@@ -18,9 +18,10 @@
     "dojo"          : false,
 
     "predef"        : [  // Custom globals.
-        //"exampleVar",
-        //"anotherCoolGlobal",
-        //"iLoveDouglas"
+		"angular",
+		"S",
+		"_",
+		"Promise"
     ],
 
 
@@ -32,6 +33,7 @@
     // ECMAScript 5.
     "strict"        : false,  // Require `use strict` pragma  in every file.
     "globalstrict"  : false,  // Allow global "use strict" (also enables 'strict').
+	"esnext" : true,
 
 
     // The Good Parts.

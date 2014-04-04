@@ -5,7 +5,8 @@ module.exports = function (app)
 
 	var index = require('../routes/index');
 	app.get('/', index.index);
-	app.get('/partials/:name', index.partials);
+	app.get('/views/:name', index.views);
+	app.get('/directives/:name', index.directives);
 
 //	var items = require('../server/controllers/itemsController');
 //	app.get('/items', items.getAll);

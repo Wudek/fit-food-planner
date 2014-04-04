@@ -40,6 +40,9 @@ module.exports = function (app)
 		//			})
 		//		}));
 
+		//live reload middleware
+		app.use(require('connect-livereload')());
+
 		//connect flash for flash messages
 		//		app.use(flash());
 
@@ -54,7 +57,7 @@ module.exports = function (app)
 		app.use(app.router);
 
 		//Setting the fav icon and static folder
-		app.use(express.favicon());
+//		app.use(express.favicon());
 		app.use(express.static(config.root + '/build'));
 
 		//Assume "not found" in the error msgs is a 404. this is somewhat silly, but valid, you can do whatever you like

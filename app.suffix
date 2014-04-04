@@ -1,1 +1,1 @@
-})( window, window.angular, window._, window.S, window.Promise );
+})( window, window.angular, window._, window.S, window.Promise, window.$traceurRuntime, window.AmCharts );

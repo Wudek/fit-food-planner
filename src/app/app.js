@@ -8,11 +8,11 @@ angular.module( 'ffp',[
 
 	.config( function ( $routeProvider) {
 		$routeProvider
-			.when('/', {templateUrl: '/partials' + '/home'})
-			.when('/clients', {templateUrl: '/partials' + '/clients'})
-			.when('/about', {templateUrl: '/partials' + '/about'})
-			.when('/client/:id', {templateUrl: '/partials' + '/client'})
-			.otherwise({templateUrl: '/partials' + '/404'});
+			.when('/', {templateUrl: '/views' + '/home'})
+			.when('/clients', {templateUrl: '/views' + '/clients'})
+			.when('/about', {templateUrl: '/views' + '/about'})
+			.when('/client/:id', {templateUrl: '/views' + '/client'})
+			.otherwise({templateUrl: '/views' + '/404'});
 //			.when('/:name',{
 //				templateUrl:function(parameters)
 //				{
@@ -32,5 +32,4 @@ angular.module( 'ffp',[
 
 	.run( function () {	})
 
-	.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) { })
-;
+	.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) { });

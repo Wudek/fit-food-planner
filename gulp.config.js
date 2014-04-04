@@ -1,16 +1,25 @@
 module.exports = {
 	buildDirectory : 'build',
+	buildDirectoryFiles : 'build/**',
 	libDirectory : 'build/lib',
 	viewsDirectory : 'build/views',
+	appDataFiles : ['src/app/data/*.js'],
+	appDataOutputFile : 'data.js',
+	appDataOutputFilePath : 'build/data.js',
 	appFiles : {
-		js: ['src/app/**/*.js','!src/app/**/*.spec.js'],
+		js: ['build/data.js', 'src/app/**/*.js','!src/app/**/*.spec.js', '!src/app/data/*.js'],
 		jade:['src/app/**/*.jade'],
 		sass:['src/app/**/*.scss', '!src/app/css/links.scss', '!src/app/css/skins.scss', '!src/app/css/variables.scss']
 	},
 	appPrefixFile: 'app.prefix',
 	appSuffixFile: 'app.suffix',
-	appScriptResultFile: 'app.js',
-	appStyleResultFile: 'style.css',
+	appScriptOutputFile: 'app.js',
+	appStyleOutputFile: 'style.css',
+	additionalLibFiles: [
+		'lib/ui-grid/ui-grid-unstable.js',
+		'lib/ui-grid/ui-grid-unstable.css',
+		'lib/amcharts/amcharts.js',
+		'lib/amcharts/serial.js'],
 	bowerFile : ['bower.json'],
 	bowerFiles :  [
 			'bower_components/**/*angular.min*',
@@ -26,6 +35,7 @@ module.exports = {
 		'bower_components/angular/angular.js',
 		'bower_components/angular-resource/angular-resource.js',
 		'bower_components/angular-route/angular-route.js',
+		'bower_components/angular-touch/angular-touch.js',
 		'bower_components/fastclick/lib/fastclick.js',
 		'bower_components/foundation/css/foundation.css',
 		'bower_components/foundation/js/foundation.js',
@@ -40,5 +50,6 @@ module.exports = {
 		'bower_components/lodash/dist/lodash.js',
 		'bower_components/stringjs/lib/string.js',
 		'bower_components/bluebird/js/browser/bluebird.js',
-		'bower_components/modernizr/modernizr.js']
+		'bower_components/modernizr/modernizr.js',
+		'bower_components/traceur-runtime/traceur-runtime.js']
 };

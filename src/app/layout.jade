@@ -9,6 +9,7 @@ html(ng-app='ffp')
 	body
 		block content
 
+		script(src='lib/traceur-runtime.js')
 		script(src='lib/jquery.js')
 		script(src='lib/lodash.js')
 		script(src='lib/string.js')
@@ -16,10 +17,13 @@ html(ng-app='ffp')
 		script(src='lib/jquery.cookie.js')
 		script(src='lib/jquery.placeholder.js')
 		script(src='lib/fastclick.js')
+		script(src='lib/amcharts.js')
+		script(src='lib/serial.js')
 		script(src='lib/foundation.js')
-		script.
-			$(document).foundation();
 		script(src='lib/angular.js')
 		script(src='lib/angular-resource.js')
 		script(src='lib/angular-route.js')
+		script(src='lib/angular-touch.js')
+		script.
+			$(document).foundation();
 		script(src='app.js')

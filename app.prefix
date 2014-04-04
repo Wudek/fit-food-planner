@@ -1,2 +1,1 @@
-(function ( window, angular, _, S, Promise, undefined ) {
-'use strict';
+(function ( window, angular, _, S, Promise, $traceurRuntime, AmCharts, undefined ) {
