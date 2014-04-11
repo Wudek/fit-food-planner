@@ -1,0 +1,31 @@
+.row
+	.small-2.columns
+		h4 Food
+	.small-1.small-offset-5.columns.small-text-center
+		h4 Protein
+	.small-1.columns.small-text-center
+		h4 Carbs
+	.small-1.columns.end.small-text-center
+		h4 Fats
+	div.row(ng-repeat='meal in diet.meals')
+		.small-12.columns
+			p {{meal.name}}
+		.row
+			.small-2.columns
+				select
+					option Rice
+			.small-2.columns
+				input(type='number', min='0', value='1')
+			.small-2.columns
+				select
+					option g
+					option once
+			.small-1.small-offset-1.columns.small-text-center
+				p 5g
+			.small-1.columns.small-text-center
+				p 6g
+			.small-1.columns.small-text-center
+				p 7g
+			.small-1.small-offset-1.columns
+				button.tiny
+					i.fi-trash

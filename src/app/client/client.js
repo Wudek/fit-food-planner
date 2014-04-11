@@ -5,17 +5,17 @@ angular.module( 'client', [])
 		var clientID = parseInt($routeParams.id);
 
 		$scope.rating = 5;
-		$scope.isLoading = true;
+//		$scope.isLoading = true;
 		$scope.client = proxyClientService.getClient(clientID);
 
-		proxyClientService.fetchClientDetails(clientID).then(
-			function(clientDetails)
-			{
-				$scope.clientDetails = clientDetails;
-				$scope.isLoading = false;
-				$scope.$digest();
-			}
-		);
+//		proxyClientService.fetchClientDetails(clientID).then(
+//			function(clientDetails)
+//			{
+//				$scope.clientDetails = clientDetails;
+//				$scope.isLoading = false;
+//				$scope.$digest();
+//			}
+//		);
 
 		function changeToDiet()
 		{
@@ -61,10 +61,11 @@ angular.module( 'client', [])
 		$scope.changeToCurrentDietMealBreakdown = changeToCurrentDietMealBreakdown;
 
 		changeToDiet();
-		changeToCurrentDietMealBreakdown();
+		changeToCurrentDietDetails();
 
 
-		$scope.chartData =  [
+		$scope.clientDiet = $scope.client.getCurrentDiet();
+		$scope.clientDietData2 =  [
 			{
 				"country": "USA",
 				"visits": 4025

@@ -5,12 +5,7 @@ div(ng-controller="ClientCtrl")
 	//		p(ng-if='!isLoading') Client Details: {{ clientDetails }}
 	.row
 		.large-12.columns
-			.profile
-				i.fi-torso
-				h2 Bob Ross
-				span.radius.label Contest prep
-				span.radius.label 170 lbs
-				span.radius.label 6'1
+			z-client-profile-card(client='client')
 	.row
 		.large-12.columns
 			dl.sub-nav
@@ -24,44 +19,14 @@ div(ng-controller="ClientCtrl")
 					a Diet History
 			div(ng-if='isCurrentDiet')
 				dl.sub-nav
-					dd(ng-class='{active: currentDietMealBreakdown}', ng-click='changeToCurrentDietMealBreakdown()')
-						a Meal Breakdown
 					dd(ng-class='{active: currentDietDetails}', ng-click='changeToCurrentDietDetails()')
 						a Details
-				div(ng-if='currentDietMealBreakdown')
-					z-chart(data='chartData')
+					dd(ng-class='{active: currentDietMealBreakdown}', ng-click='changeToCurrentDietMealBreakdown()')
+						a Meal Breakdown
 				div(ng-if='currentDietDetails')
-					.row
-						.small-2.columns
-							h4 Food
-						.small-1.small-offset-5.columns.small-text-center
-							h4 Protein
-						.small-1.columns.small-text-center
-							h4 Carbs
-						.small-1.columns.end.small-text-center
-							h4 Fats
-						.row
-							.small-12.columns
-								p Meal 1
-						.row
-							.small-2.columns
-								select
-									option Rice
-							.small-2.columns
-								input(type='number', min='0', value='1')
-							.small-2.columns
-								select
-									option g
-									option once
-							.small-1.small-offset-1.columns.small-text-center
-								p 5g
-							.small-1.columns.small-text-center
-								p 6g
-							.small-1.columns.small-text-center
-								p 7g
-							.small-1.small-offset-1.columns
-								button.tiny
-									i.fi-trash
+					z-diet-details(diet='clientDiet')
+				div(ng-if='currentDietMealBreakdown')
+					z-diet-chart(diet='clientDiet')
 			div(ng-if='isLikes')
 				h1 isLikes
 			div(ng-if='isDislikes')

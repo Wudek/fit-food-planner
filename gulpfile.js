@@ -12,6 +12,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var util = require('util');
 var gutil = require('gulp-util');
 var fs = require('fs');
 var clean = require('gulp-clean');
@@ -22,7 +23,6 @@ var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var minifyCSS = require('gulp-minify-css');
-var jade = require('gulp-jade');
 var bower = require('gulp-bower');
 var flatten = require('gulp-flatten');
 var traceur = require('gulp-traceur');
@@ -31,16 +31,33 @@ var refresh = require('gulp-livereload');
 var plumber = require('gulp-plumber');
 var _ = require('lodash');
 var S = require('string');
+var moment = require('moment');
 
 var config = require('./gulp.config.js');
 
 var frepUseStrictPattern = {pattern: '"use strict";', replacement: ''};
 var frepModuleNamePattern = {pattern: 'var\\s__moduleName\\s=\\s\\"\\w*\\";', replacement: ''};
+var frepRemoveComments = {pattern: '\/\/[|\\w\\(\\=\'\\,\\-\\)\\%\t ]*', replacement: ''};
 
 var liveReloadServer = require('tiny-lr')();
 liveReloadServer.listen(35729, function(err){
 	if(err) return console.log(err);
 });
+
+var watchEnabled = false;
+
+function preWatch(){
+	if(watchEnabled)
+	{
+		util.print('\u001b[2J\u001b[0;0H'); //Clear console
+		gutil.log('Watch running (' +  moment().format('hh:mm:ss A') + ')');
+	}
+}
+
+function getTraceur(){
+	return traceur();
+//	return traceur({wrap:'false'});
+}
 
 gulp.task('clean', function(){
 	return gulp.src([config.buildDirectory, config.libDirectory], {read: false})
@@ -48,10 +65,11 @@ gulp.task('clean', function(){
 });
 
 gulp.task('dataScripts', function(){
+	preWatch();
 	return gulp.src(config.appDataFiles)
 		.pipe(plumber())
 		.pipe(concat(config.appDataOutputFile))
-		.pipe(traceur())
+		.pipe(getTraceur())
 		.pipe(frep([frepUseStrictPattern,frepModuleNamePattern]))
 		.pipe(gulp.dest(config.buildDirectory))
 });
@@ -62,7 +80,7 @@ gulp.task('appScriptsCompile', ['dataScripts'], function(){
 	return gulp.src(config.appFiles.js)
 		.pipe(plumber())
 		.pipe(concat(config.appScriptOutputFile))
-		.pipe(traceur())
+		.pipe(getTraceur())
 		.pipe(frep([frepModuleNamePattern]))
 		.pipe(header(prefix))
 		.pipe(footer(suffix))
@@ -79,6 +97,7 @@ gulp.task('appScripts', ['appScriptsCompile'], function(){
 });
 
 gulp.task('styles', function(){
+	preWatch();
 	return gulp.src(config.appFiles.sass)
 		.pipe(plumber())
 		.pipe(sass({errLogToConsole: true}))
@@ -89,9 +108,11 @@ gulp.task('styles', function(){
 });
 
 gulp.task('views', function(){
+	preWatch();
 	return gulp.src(config.appFiles.jade)
 		.pipe(plumber())
 		.pipe(flatten())
+//		.pipe(frep([frepRemoveComments]))
 		.pipe(gulp.dest(config.viewsDirectory))
 		.pipe(refresh(liveReloadServer));
 });
@@ -121,6 +142,7 @@ gulp.task('vendor', ['vendor_merge'], function(){
 });
 
 gulp.task('watch', ['vendor'], function(){
+	watchEnabled = true;
 	gulp.watch([config.appFiles.js, config.appDataFiles], ['appScripts']);
 	gulp.watch(config.appFiles.sass, ['styles']);
 	gulp.watch(config.appFiles.jade, ['views']);

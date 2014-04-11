@@ -1,6 +1,7 @@
 angular.module( 'ffp',[
 		'ngRoute',
 		'services',
+		'directives',
 		'home',
 		'about',
 		'clients',
@@ -33,3 +34,6 @@ angular.module( 'ffp',[
 	.run( function () {	})
 
 	.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) { });
+
+angular.module('services', []);
+angular.module('directives', []);

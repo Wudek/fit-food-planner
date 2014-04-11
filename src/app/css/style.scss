@@ -1,6 +1,8 @@
 @import "variables";
 //@import "links";
 @import "skins";
+@import 'flex';
+@import '../../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss';
 
 nav{
   i{
@@ -13,8 +15,44 @@ nav{
   padding: 10px;
 }
 
-.rightalignchildren
+.right-align
 {
-  display: flex;
+  @extend %flexbox;
+  @include justify-content(flex-end);
   justify-content: flex-end;
+}
+
+.centered
+{
+  @extend %flexbox;
+  @include justify-content(center);
+}
+
+.vertical-center
+{
+  @extend %flexbox;
+  @include align-items(center);
+}
+
+.space-around
+{
+  @extend %flexbox;
+  @include justify-content(space-around);
+}
+
+.end
+{
+  @extend %flexbox;
+  @include justify-content(flex-end);
+}
+
+.start
+{
+  @extend %flexbox;
+  @include justify-content(flex-start);
+}
+
+.clear-padding
+{
+  padding: 0;
 }
