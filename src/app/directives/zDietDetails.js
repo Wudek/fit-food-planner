@@ -3,7 +3,14 @@ angular.module('directives')
 	{
 		function link($scope, element, attributes)
 		{
+
 		}
+
+
+//		$scope.$watch('diet', function (diet)
+//		{
+//			setMeals(diet.meals);
+//		});
 
 		return {
 			restrict    : 'AE',

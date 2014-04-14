@@ -44,17 +44,17 @@ angular.module('services').factory('proxyClientService', function ()
 		return client;
 	};
 	var foods = [
-		new Food('rice', 23, 2.6, 0.9),
-		new Food('chicken breast', 0, 21, 9),
-		new Food('ground beef', 0, 29, 8),
-		new Food('broccoli', 7, 2.8, 0.4),
-		new Food('celery', 3, 0.7, 0.2),
-		new Food('sweet potato', 20, 1.6, 0),
-		new Food('salmon', 0, 20, 13),
-		new Food('whole wheat pasta', 27, 5, 1),
-		new Food('blueberry', 14, 0.7, 0.3),
-		new Food('almonds', 22, 21, 49),
-		new Food('peanut butter', 20, 25, 50)];
+		new Food('rice', 2.6, 23, 0.9),
+		new Food('chicken breast', 21, 0, 9),
+		new Food('ground beef', 29, 0, 8),
+		new Food('broccoli', 2.8, 7, 0.4),
+		new Food('celery', 0.7, 3, 0.2),
+		new Food('sweet potato', 1.5, 20, 0),
+		new Food('salmon', 20, 0, 13),
+		new Food('whole wheat pasta', 5, 27, 1),
+		new Food('blueberry', 0.7, 14, 0.3),
+		new Food('almonds', 21, 22, 49),
+		new Food('peanut butter', 25, 20, 50)];
 	var getRandomFood = () => _.sample(foods);
 	var getRandomFoodItem = () =>
 	{
