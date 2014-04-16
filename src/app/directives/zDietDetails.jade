@@ -1,27 +1,31 @@
 .row
-	.small-1.small-offset-6.columns.small-text-center
-		h5 Protein
-	.small-1.columns.small-text-center
-		h5 Carbs
-	.small-1.columns.small-text-center
-		h5 Fats
-	.small-2.columns.small-text-center
-		h5 Calories
-	.small-1.columns.end
+	.col-xs-1.col-sm-offset-6.text-center
+		strong Protein
+	.col-xs-1.text-center
+		strong Carbs
+	.col-xs-1.text-center
+		strong Fats
+	.col-xs-1.text-center
+		strong Calories
+	.col-xs-2
 .row
-	hr
-z-edit-diet(diet='diet', foods='foods')
+	.col-xs-12
+		hr
 .row
-	hr
+	.col-xs-12
+		z-edit-diet(diet='diet', foods='foods')
 .row
-	.small-6.columns
+	.col-xs-12
+		hr
+.row
+	.col-xs-6
 		h4 Diet Total
-	.small-1.columns.small-text-center
+	.col-xs-1.text-center
 		h5 {{diet.protein | number:1}}g
-	.small-1.columns.small-text-center
+	.col-xs-1.text-center
 		h5 {{diet.carbs | number:1}}g
-	.small-1.columns.small-text-center
+	.col-xs-1.text-center
 		h5 {{diet.fats | number:1}}g
-	.small-2.columns.small-text-center
+	.col-xs-1.text-center
 		h5 {{diet.calories | number:0}}
-	.small-1.columns.end
+	.col-xs-1

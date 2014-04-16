@@ -1,6 +1,6 @@
 .profile
-	i.fi-torso
+	i.fa.fa-user
 	h2 {{client.name}}
-	span.radius.label(ng-if='client.category') {{client.category}}
-	span.radius.label {{client.weight}} lbs
-	span.radius.label {{client.height}} cm
+	span.label.label-primary(ng-if='client.category') {{client.category}}
+	span.label.label-primary {{client.weight}} lbs
+	span.label.label-primary {{client.height}} cm

@@ -129,6 +129,13 @@ gulp.task('bower', function(){
 	return bower();
 });
 
+gulp.task('vendor_icons_merge', ['bower'], function(){
+	return gulp.src(config.bowerIconFiles)
+		.pipe(plumber())
+		.pipe(flatten())
+		.pipe(gulp.dest(config.iconDirectory))
+});
+
 gulp.task('vendor_merge', ['bower'], function(){
 	return gulp.src(config.bowerFiles_dev)
 		.pipe(plumber())
@@ -136,7 +143,7 @@ gulp.task('vendor_merge', ['bower'], function(){
 		.pipe(gulp.dest(config.libDirectory))
 });
 
-gulp.task('vendor', ['vendor_merge'], function(){
+gulp.task('vendor', ['vendor_merge', 'vendor_icons_merge'], function(){
 //	return gulp.src('bower_components', {read: false})
 //		.pipe(clean());
 });
@@ -154,6 +161,6 @@ gulp.task('default', ['clean'], function(){
 
 gulp.task('default2', ['clean'], function(){
 	//No post cleanup and no watching
-	gulp.start('vendor_merge', 'appScripts', 'styles', 'views', 'additional_lib');
+	gulp.start('vendor', 'appScripts', 'styles', 'views', 'additional_lib');
 });
 

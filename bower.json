@@ -10,6 +10,8 @@
     "modernizr": "latest",
     "foundation": "latest",
     "foundation-icon-fonts": "latest",
+	"bootstrap": "latest",
+	"fontawesome": "latest",
     "lodash": "latest",
     "stringjs": "latest",
     "bluebird": "latest",

@@ -1,17 +1,16 @@
 div(ng-controller="ClientCtrl")
-	.row
-		.large-12.columns
-			z-client-profile-card(client='client')
-	.row
-		.small-12.columns
-			dl.sub-nav
-				dd(ng-class='{active: currentDietDetails}', ng-click='changeToCurrentDietDetails()')
-					a Details
-				dd(ng-class='{active: currentDietMealBreakdown}', ng-click='changeToCurrentDietMealBreakdown()')
-					a Meal Breakdown
-	div(ng-if='currentDietDetails')
-		z-diet-details(diet='diet', foods='foods')
-	div(ng-if='currentDietMealBreakdown')
+	.container-fluid
 		.row
-			.small-12.columns
+			.col-xs-12
+				z-client-profile-card(client='client')
+		.row
+			.col-xs-12
+				.btn-group
+					button.btn.btn-primary(type='button',ng-class='{active: currentDietDetails}', ng-click='changeToCurrentDietDetails()') Details
+					button.btn.btn-primary(type='button',ng-class='{active: currentDietMealBreakdown}', ng-click='changeToCurrentDietMealBreakdown()') Meal Breakdown
+		.row(ng-if='currentDietDetails')
+			.col-xs-12
+				z-diet-details(diet='diet', foods='foods')
+		.row.small-bot-padding(ng-if='currentDietMealBreakdown')
+			.col-xs-12
 				z-diet-chart(diet='diet')

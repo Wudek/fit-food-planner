@@ -1,4 +1,4 @@
 .row(ng-repeat='meal in diet.meals')
-	.small-12.columns
-		p {{meal.name}}
-	div(ng-repeat='foodItem in meal.foodItems', z-edit-food-item='foodItem', foods='foods')
+	.col-xs-12.small-bot-padding
+		strong {{meal.name}}
+	.col-xs-12(ng-repeat='foodItem in meal.foodItems', z-edit-food-item='foodItem', foods='foods')

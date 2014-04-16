@@ -1,29 +1,8 @@
 angular.module('directives')
 	.directive('zDietChart', function ()
 	{
-		var id = 0;
-
-		function fixOptions(id)
-		{
-			function fixOption(optionID)
-			{
-				var inputID = 'option' + optionID + '_input';
-				var labelID = 'option' + optionID + '_label';
-				var input = $('#' + inputID);
-				var label = $('#' + labelID);
-				inputID += '_' + id;
-				labelID += '_' + id;
-				input.attr('id', inputID );
-				label.attr('id', labelID );
-				label.prop('for', inputID);
-			}
-			fixOption(0);
-			fixOption(2);
-		}
-
 		function link($scope, element, attributes)
 		{
-			fixOptions(id++);
 			var options ={
 				macros : 0,
 				macroPercentages : 1,

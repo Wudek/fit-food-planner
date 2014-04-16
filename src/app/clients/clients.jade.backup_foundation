@@ -1,0 +1,43 @@
+div(ng-controller="ClientsCtrl")
+	.row
+		.large-12.columns
+			.panel.radius
+				h2 Clients
+				p Clients Description
+	.row
+		.large-3.columns
+			button(ng-click='addRandom()') Add Random (temp)
+	.row
+		.large-3.columns
+			form.panel.radius
+				.row
+					.large-12.columns
+						input(type='text', placeholder='Name', ng-model='filter.name')
+				.row
+					.large-12.columns
+						input#maleCheckbox(type='checkbox', ng-checked='filter.isMale', ng-model='filter.isMale')
+						label(for='maleCheckbox') Male
+						input#femaleCheckbox(type='checkbox', ng-checked='filter.isFemale', ng-model='filter.isFemale')
+						label(for='femaleCheckbox') Female
+				.row
+					.large-12.columns
+						label Category
+						select(ng-model='filter.category', ng-options='category for category in categories')
+							option(value='') All
+				.row
+					.large-12.columns.right-align
+						button.tiny(ng-click='clearFilter()') Clear
+
+		.large-9.columns
+			ul#clientList
+				li(ng-repeat='client in filteredClients  =(clients | filter:filterBy())')
+					a#clientListContent(href='#/client/{{client.id}}')
+						i.fi-male(ng-if='client.isMale')
+						i.fi-female(ng-if='!client.isMale')
+						span {{client.name}}
+							span.radius.label(ng-if='client.category') {{client.category}}
+							span.radius.label {{client.weight}} lbs
+							span.radius.label {{client.height}} cm
+					a#clientListDelete(ng-click='removeClient(client)')
+						i.fi-trash
+				li(ng-if='filteredClients.length === 0') No clients

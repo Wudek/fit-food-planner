@@ -2,9 +2,8 @@ doctype html
 html(ng-app='ffp')
 	head
 		title= title
-		link(rel='stylesheet', href='lib/bootstrap.min.css')
-		//link(rel='stylesheet', href='lib/bootstrap-theme.min.css')
-		link(rel='stylesheet', href='lib/font-awesome.min.css')
+		link(rel='stylesheet', href='lib/foundation.css')
+		link(rel='stylesheet', href='lib/foundation-icons.css')
 		link(rel='stylesheet', href='style.css')
 		script(src='lib/modernizr.js')
 	body
@@ -20,9 +19,11 @@ html(ng-app='ffp')
 		script(src='lib/fastclick.js')
 		script(src='lib/amcharts.js')
 		script(src='lib/serial.js')
-		script(src='lib/bootstrap.min.js')
+		script(src='lib/foundation.js')
 		script(src='lib/angular.js')
 		script(src='lib/angular-resource.js')
 		script(src='lib/angular-route.js')
 		script(src='lib/angular-touch.js')
+		script.
+			$(document).foundation();
 		script(src='app.js')

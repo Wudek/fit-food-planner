@@ -1,43 +1,32 @@
 @import 'variables';
+@import 'flex';
 
-#clientList
+#searchForm
 {
-  list-style: none;
-  li
-  {
-    display: flex;
-    margin-bottom: 0.5rem;
-  }
+  @extend %flexbox;
+  @include justify-content(space-around);
+  @include align-items(center);
+  @include flex-wrap(wrap);
 }
 
-#clientListContent
+.clientListItem
 {
-  flex-grow: 10;
-  display: flex;
-  align-items: center;
+  @extend %flexbox;
+  @include align-items(center);
+  @include flex-wrap(wrap);
   padding: 1rem;
-  line-height: 0.1rem;
-  border: 0.1rem solid $silver;
-  -webkit-transition: border-color .3s ease-in-out;
-  transition:         border-color .3s ease-in-out;
   i {
-    margin-right: 5px;
     font-size: 2rem;
   }
-  span {
-    display: flex;
-    align-items: center;
+  p{
+    font-size: 2rem;
   }
-  span *{
-    margin: 0.5rem;
+  span{
+    font-size: 1.1rem;
   }
-}
-
-#clientListContent:hover
-{
-  border-color: $blue;
-  -webkit-transition: border-color .3s ease-in-out;
-  transition:         border-color .3s ease-in-out;
+  *{
+    margin: 1rem;
+  }
 }
 
 #clientListDelete
