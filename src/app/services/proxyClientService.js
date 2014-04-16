@@ -106,15 +106,11 @@ angular.module('services').factory('proxyClientService', function ()
 	addRandomClient();
 	addRandomClient();
 	addRandomClient();
+
 	return    {
-		getClients : function ()
-		{
-			return clients;
-		},
-		getClientCategories : function ()
-		{
-			return clientCategories;
-		},
+		getClients : () => clients,
+		getClientCategories : () => clientCategories,
+		getFoods : () => foods,
 		addClient : addClient,
 		removeClient : removeClient,
 		getClient : getClient,

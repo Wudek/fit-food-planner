@@ -33,8 +33,13 @@ class FoodItem extends BaseObject {
 
 	getQuantityFactor()
 	{
+		return this.getQuantityFactorFor(this.quantityType);
+	}
+
+	getQuantityFactorFor(quantityType)
+	{
 		//food macros are always calculated by 100g
-		switch(this.quantityType)
+		switch(quantityType)
 		{
 			case this.quantityTypes.g:
 				return this.quantity / 100;
@@ -44,5 +49,12 @@ class FoodItem extends BaseObject {
 				return this.quantity * 1.28;
 		}
 		return 0;
+	}
+
+	adjustQuantity(from, to)
+	{
+		var fromFactor = this.getQuantityFactorFor(from);
+		var toFactor = this.getQuantityFactorFor(to);
+		this.quantity *= fromFactor / toFactor;
 	}
 }

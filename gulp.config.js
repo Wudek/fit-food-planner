@@ -7,7 +7,7 @@ module.exports = {
 	appDataOutputFile : 'data.js',
 	appDataOutputFilePath : 'build/data.js',
 	appFiles : {
-		js: ['build/data.js', 'src/app/**/*.js','!src/app/**/*.spec.js', '!src/app/data/*.js'],
+		js: ['build/data.js', 'src/app/app.js','src/app/filters/*.js', 'src/app/services/*.js', 'src/app/directives/*.js', 'src/app/**/*.js','!src/app/**/*.spec.js', '!src/app/data/*.js'],
 		jade:['src/app/**/*.jade'],
 		sass:['src/app/**/*.scss', '!src/app/css/links.scss', '!src/app/css/skins.scss', '!src/app/css/variables.scss']
 	},

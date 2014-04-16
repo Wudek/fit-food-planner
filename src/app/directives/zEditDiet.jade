@@ -1,0 +1,5 @@
+.row(ng-repeat='meal in diet.meals')
+	.small-12.columns
+		p {{meal.name}}
+	div(ng-repeat='foodItem in meal.foodItems')
+		div(z-edit-food-item='foodItem', foods='foods')

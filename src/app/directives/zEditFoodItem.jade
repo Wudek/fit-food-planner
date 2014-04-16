@@ -1,0 +1,17 @@
+.row
+	.small-2.columns
+		select
+			option {{foodItem.food.name}}
+	.small-2.columns
+		input(type='number', min='0', ng-model='quantity', ng-change='changeQuantity()')
+	.small-2.columns
+		select(ng-model='foodItem.quantityType', ng-options='type for type in foodItem.getQuantityTypes()')
+	.small-1.small-offset-1.columns.small-text-center
+		p {{foodItem.getProtein() | number:1}}g
+	.small-1.columns.small-text-center
+		p {{foodItem.getCarbs()| number:1}}g
+	.small-1.columns.small-text-center
+		p {{foodItem.getFats() | number:1}}g
+	.small-1.small-offset-1.columns
+		button.tiny
+			i.fi-trash

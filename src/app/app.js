@@ -37,3 +37,7 @@ angular.module( 'ffp',[
 
 angular.module('services', []);
 angular.module('directives', []);
+angular.module('home', []);
+angular.module('about', []);
+angular.module('clients', []);
+angular.module('client', []);

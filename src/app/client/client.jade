@@ -1,35 +1,17 @@
 div(ng-controller="ClientCtrl")
-	//.row
-	//	.large-12.columns
-	//		p(ng-if='isLoading') LOADING
-	//		p(ng-if='!isLoading') Client Details: {{ clientDetails }}
 	.row
 		.large-12.columns
 			z-client-profile-card(client='client')
 	.row
-		.large-12.columns
+		.small-12.columns
 			dl.sub-nav
-				dd(ng-class='{active: isCurrentDiet}', ng-click='changeToDiet()')
-					a Current Diet
-				dd(ng-class='{active: isLikes}', ng-click='changeToLikes()')
-					a Food Likes
-				dd(ng-class='{active: isDislikes}', ng-click='changeToDislikes()')
-					a Food Dislikes
-				dd(ng-class='{active: isHistory}', ng-click='changeToHistory()')
-					a Diet History
-			div(ng-if='isCurrentDiet')
-				dl.sub-nav
-					dd(ng-class='{active: currentDietDetails}', ng-click='changeToCurrentDietDetails()')
-						a Details
-					dd(ng-class='{active: currentDietMealBreakdown}', ng-click='changeToCurrentDietMealBreakdown()')
-						a Meal Breakdown
-				div(ng-if='currentDietDetails')
-					z-diet-details(diet='clientDiet')
-				div(ng-if='currentDietMealBreakdown')
-					z-diet-chart(diet='clientDiet')
-			div(ng-if='isLikes')
-				h1 isLikes
-			div(ng-if='isDislikes')
-				h1 isDislikes
-			div(ng-if='isHistory')
-				h1 isHistory
+				dd(ng-class='{active: currentDietDetails}', ng-click='changeToCurrentDietDetails()')
+					a Details
+				dd(ng-class='{active: currentDietMealBreakdown}', ng-click='changeToCurrentDietMealBreakdown()')
+					a Meal Breakdown
+	div(ng-if='currentDietDetails')
+		z-diet-details(diet='clientDiet')
+	div(ng-if='currentDietMealBreakdown')
+		.row
+			.small-12.columns
+				z-diet-chart(diet='clientDiet', foods='foods')
