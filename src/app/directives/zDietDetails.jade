@@ -1,8 +1,27 @@
 .row
-	.small-1.small-offset-7.columns.small-text-center
+	.small-1.small-offset-6.columns.small-text-center
 		h5 Protein
 	.small-1.columns.small-text-center
 		h5 Carbs
-	.small-1.columns.end.small-text-center
+	.small-1.columns.small-text-center
 		h5 Fats
+	.small-2.columns.small-text-center
+		h5 Calories
+	.small-1.columns.end
+.row
+	hr
 z-edit-diet(diet='diet', foods='foods')
+.row
+	hr
+.row
+	.small-6.columns
+		h4 Diet Total
+	.small-1.columns.small-text-center
+		h5 {{diet.protein | number:1}}g
+	.small-1.columns.small-text-center
+		h5 {{diet.carbs | number:1}}g
+	.small-1.columns.small-text-center
+		h5 {{diet.fats | number:1}}g
+	.small-2.columns.small-text-center
+		h5 {{diet.calories | number:0}}
+	.small-1.columns.end

@@ -11,27 +11,31 @@ class FoodItem extends BaseObject {
 		};
 	}
 
-	getCarbs()
-	{
-		return this.food.carbs * this.getQuantityFactor();
+	get carbs(){
+		return this.food.carbs * this.quantityFactor;
 	}
 
-	getProtein()
+	get protein()
 	{
-		return this.food.protein* this.getQuantityFactor();
+		return this.food.protein* this.quantityFactor;
 	}
 
-	getFats()
+	get fats()
 	{
-		return this.food.fats * this.getQuantityFactor();
+		return this.food.fats * this.quantityFactor;
 	}
 
-	getQuantityTypes()
+	get calories()
+	{
+		return this.carbs * 4 + this.protein * 4 + this.fats * 9;
+	}
+
+	get quantityTypesCollection()
 	{
 		return [this.quantityTypes.g, this.quantityTypes.ounce, this.quantityTypes.cup];
 	}
 
-	getQuantityFactor()
+	get quantityFactor()
 	{
 		return this.getQuantityFactorFor(this.quantityType);
 	}

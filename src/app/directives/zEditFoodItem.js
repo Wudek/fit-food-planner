@@ -17,8 +17,6 @@ angular.module('directives')
 				}
 			}, true);
 			$scope.$watch('foodItem.quantity', function(){
-//				var value = Number($filter('number')($scope.foodItem.quantity, 2));
-//				var otherValue = quantityFilter($scope.foodItem.quantity);
 				$scope.quantity = filter($scope.foodItem.quantity);
 			}, true);
 

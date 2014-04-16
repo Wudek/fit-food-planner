@@ -3,7 +3,6 @@ angular.module('directives')
 	{
 		function link($scope, element, attributes)
 		{
-
 		}
 
 
@@ -15,6 +14,7 @@ angular.module('directives')
 		return {
 			restrict    : 'AE',
 			scope       : {
+				foods : '=',
 				diet : '='},
 			link        : link,
 			templateUrl : 'directives/zDietDetails'

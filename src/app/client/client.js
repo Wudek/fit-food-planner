@@ -63,6 +63,6 @@ angular.module( 'client', [])
 
 		changeToCurrentDietDetails();
 
-		$scope.clientDiet = $scope.client.getCurrentDiet();
 		$scope.foods = proxyClientService.getFoods();
+		$scope.diet = $scope.client.getCurrentDiet();
 	});

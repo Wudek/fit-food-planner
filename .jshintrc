@@ -13,7 +13,7 @@
 	"mootools"     : false,
 	"dojo"         : false,
 	"predef"       : [  // Custom globals.
-		"angular", "S", "_", "Promise"
+		"angular", "S", "_", "Promise", "$traceurRuntime", "AmCharts"
 	],
 	// Development.
 	"debug"        : false,  // Allow debugger statements e.g. browser breakpoints.

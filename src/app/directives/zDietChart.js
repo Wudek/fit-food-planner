@@ -120,7 +120,7 @@ angular.module('directives')
 			$scope.$watch('diet', function (diet)
 			{
 				setMeals(diet.meals);
-			});
+			}, true);
 
 			$scope.$watch('option', function (value)
 			{
