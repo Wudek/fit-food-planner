@@ -1,16 +1,18 @@
 div(ng-controller="ClientCtrl")
-	.container-fluid
-		.row
-			.col-xs-12
-				z-client-profile-card(client='client')
-		.row
-			.col-xs-12
-				.btn-group
-					button.btn.btn-primary(type='button',ng-class='{active: currentDietDetails}', ng-click='changeToCurrentDietDetails()') Details
-					button.btn.btn-primary(type='button',ng-class='{active: currentDietMealBreakdown}', ng-click='changeToCurrentDietMealBreakdown()') Meal Breakdown
-		.row(ng-if='currentDietDetails')
-			.col-xs-12
+	z-client-profile-card(client='client')
+	.btn-group#actionList
+		a.btn.btn-primary(type='button')
+			i.fa.fa-list Add Meal
+		a.btn.btn-primary(type='button')
+			i.fa.fa-list Add Meal2
+	.panel
+		ul.nav.nav-tabs
+			li(ng-class='{active: currentDietDetails}')
+				a(ng-class='{active: currentDietDetails}', ng-click='changeToCurrentDietDetails()') Diet Details
+			li(ng-class='{active: currentDietMealBreakdown}')
+				a(ng-click='changeToCurrentDietMealBreakdown()') Diet Breakdown
+		.tab-content
+			.tab-pane(ng-class='{active: currentDietDetails}', ng-if='currentDietDetails')
 				z-diet-details(diet='diet', foods='foods')
-		.row.small-bot-padding(ng-if='currentDietMealBreakdown')
-			.col-xs-12
+			.tab-pane.small-bot-padding(ng-class='{active: currentDietMealBreakdown}', ng-if='currentDietMealBreakdown')
 				z-diet-chart(diet='diet')

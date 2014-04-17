@@ -1,10 +1,12 @@
-.row
-	.col-xs-12.centered
-		label Chart Type:
-			label.radio-inline
-				input(type='radio', name='filter', ng-model='option', ng-value='0')
-				| Macro per meal
-			label.radio-inline
-				input(type='radio', name='filter', ng-model='option', ng-value='2')
-				| Calories per meal
+.centered
+	label Breakdown by:
+		label.radio-inline
+			input(type='radio',i-check, name='filter', ng-model='option', ng-value='0')
+			| Macro per meal
+		label.radio-inline
+			input(type='radio',i-check, name='filter', ng-model='option', ng-value='1')
+			| Macro % per meal
+		label.radio-inline
+			input(type='radio',i-check, name='filter', ng-model='option', ng-value='2')
+			| Calories per meal
 div.zChart

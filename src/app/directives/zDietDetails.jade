@@ -1,31 +1,73 @@
-.row
-	.col-xs-1.col-sm-offset-6.text-center
-		strong Protein
-	.col-xs-1.text-center
-		strong Carbs
-	.col-xs-1.text-center
-		strong Fats
-	.col-xs-1.text-center
-		strong Calories
-	.col-xs-2
-.row
-	.col-xs-12
-		hr
-.row
-	.col-xs-12
-		z-edit-diet(diet='diet', foods='foods')
-.row
-	.col-xs-12
-		hr
-.row
-	.col-xs-6
-		h4 Diet Total
-	.col-xs-1.text-center
-		h5 {{diet.protein | number:1}}g
-	.col-xs-1.text-center
-		h5 {{diet.carbs | number:1}}g
-	.col-xs-1.text-center
-		h5 {{diet.fats | number:1}}g
-	.col-xs-1.text-center
-		h5 {{diet.calories | number:0}}
-	.col-xs-1
+div
+	table.table.table-hover
+		thead
+			tr
+				th
+				th
+				th
+				th.text-center Protein
+				th.text-center Carbs
+				th.text-center Fats
+				th.text-center Calories
+				th
+		tbody
+			tr
+				th Meal 1
+			tr
+				td
+					select.form-control
+				td
+					input.form-control
+				td
+					select.form-control
+				td.text-center 0
+				td.text-center 0
+				td.text-center 0
+				td.text-center 0
+				td
+					a.btn.btn-info.btn-block(type='button')
+						i.fa.fa-trash-o
+			tfoot
+				th Diet Total
+				th
+				th
+				th.text-center 0
+				th.text-center 0
+				th.text-center 0
+				th.text-center 0
+				th
+
+//div
+	.row
+		.col-m-6
+
+		.col-m-1.text-center
+			strong Protein
+		.col-m-1.text-center
+			strong Carbs
+		.col-m-1.text-center
+			strong Fats
+		.col-m-1.text-center
+			strong Calories
+		.col-m-2
+	.row
+		.col-m-12
+			hr
+	.row
+		.col-m-12
+			z-edit-diet(diet='diet', foods='foods')
+	.row
+		.col-m-12
+			hr
+	.row
+		.col-m-6
+			h4 Diet Total
+		.col-m-1.text-center
+			h5 {{diet.protein | number:1}}g
+		.col-m-1.text-center
+			h5 {{diet.carbs | number:1}}g
+		.col-m-1.text-center
+			h5 {{diet.fats | number:1}}g
+		.col-m-1.text-center
+			h5 {{diet.calories | number:0}}
+		.col-m-1

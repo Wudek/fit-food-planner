@@ -43,7 +43,7 @@ angular.module('directives')
 			categoryAxis.axisThickness = 2;
 			categoryAxis.gridAlpha = 0;
 			//Write to element
-			chart.write(element[0].children[1]);
+			chart.write(_.last(element[0].children));
 
 			function setMeals(meals)
 			{

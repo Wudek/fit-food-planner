@@ -9,17 +9,17 @@ div(ng-controller="ClientsCtrl")
 			.col-xs-12
 				.panel.panel-default
 					.panel-body#searchForm
-						label Name:
-							input(type='text', placeholder='Name', ng-model='filter.name')
-						label Sex:
+						label.form-inline Name:
+							input.form-control(type='text', placeholder='Name', ng-model='filter.name')
+						div
 							label.checkbox-inline
-								input(type='checkbox', ng-checked='filter.isMale', ng-model='filter.isMale')
+								input(type='checkbox', i-check, ng-checked='filter.isMale', ng-model='filter.isMale')
 								| Male
 							label.checkbox-inline
-								input(type='checkbox', ng-checked='filter.isFemale', ng-model='filter.isFemale')
+								input(type='checkbox', i-check, ng-checked='filter.isFemale', ng-model='filter.isFemale')
 								| Female
-						label Category:
-							select(ng-model='filter.category', ng-options='category for category in categories')
+						label.form-inline Category:
+							select.form-control(ng-model='filter.category', ng-options='category for category in categories')
 								option(value='') All
 						button.btn.btn-primary.btn-sm(type='button', ng-click='clearFilter()') Clear
 
@@ -29,9 +29,9 @@ div(ng-controller="ClientsCtrl")
 						i.fa.fa-male(ng-if='client.isMale')
 						i.fa.fa-female(ng-if='!client.isMale')
 						p {{client.name}}
-						span.label.label-primary(ng-if='client.category') {{client.category}}
-						span.label.label-primary {{client.weight}} lbs
-						span.label.label-primary {{client.height}} cm
+						span.badge.badge-primary(ng-if='client.category') {{client.category}}
+						span.badge.badge-primary {{client.weight}} lbs
+						span.badge.badge-primary {{client.height}} cm
 						//a#clientListDelete(ng-click='removeClient(client)')
 							i.fa.fa-trash-o
 					a.list-group-item(ng-if='filteredClients.length === 0') No clients

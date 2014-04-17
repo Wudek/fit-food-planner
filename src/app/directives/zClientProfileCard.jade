@@ -1,6 +1,6 @@
 .profile
 	i.fa.fa-user
 	h2 {{client.name}}
-	span.label.label-primary(ng-if='client.category') {{client.category}}
-	span.label.label-primary {{client.weight}} lbs
-	span.label.label-primary {{client.height}} cm
+	span.badge.badge-primary(ng-if='client.category') {{client.category}}
+	span.badge.badge-primary {{client.weight}} lbs
+	span.badge.badge-primary {{client.height}} cm

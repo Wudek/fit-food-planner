@@ -1,21 +1,22 @@
 {
-  "name": "ffp",
-  "version": "0.0.1",
-  "devDependencies": {
-    "angular": "latest",
-    "angular-route": "latest",
-    "angular-resource": "latest",
-    "angular-touch": "latest",
-    "jquery": "latest",
-    "modernizr": "latest",
-    "foundation": "latest",
-    "foundation-icon-fonts": "latest",
-	"bootstrap": "latest",
-	"fontawesome": "latest",
-    "lodash": "latest",
-    "stringjs": "latest",
-    "bluebird": "latest",
-	"bourbon": "latest",
-  	"traceur-runtime": "latest"
-  }
+	"name"            : "ffp",
+	"version"         : "0.0.1",
+	"devDependencies" : {
+		"angular"          : "latest",
+		"angular-route"    : "latest",
+		"angular-resource" : "latest",
+		"angular-touch"    : "latest",
+		"fastclick"        : "latest",
+		"jquery"           : "latest",
+		"modernizr"        : "latest",
+		"bootstrap"        : "latest",
+		"Bootflat"         : "latest",
+		"fontawesome"      : "latest",
+		"iCheck"           : "latest",
+		"lodash"           : "latest",
+		"stringjs"         : "latest",
+		"bluebird"         : "latest",
+		"bourbon"          : "latest",
+		"traceur-runtime"  : "latest"
+	}
 }

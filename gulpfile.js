@@ -122,7 +122,7 @@ gulp.task('additional_lib', function(){
 	return gulp.src(config.additionalLibFiles)
 		.pipe(plumber())
 		.pipe(flatten())
-		.pipe(gulp.dest(config.libDirectory))
+		.pipe(gulp.dest(config.libDirectory));
 });
 
 gulp.task('bower', function(){
@@ -133,7 +133,13 @@ gulp.task('vendor_icons_merge', ['bower'], function(){
 	return gulp.src(config.bowerIconFiles)
 		.pipe(plumber())
 		.pipe(flatten())
-		.pipe(gulp.dest(config.iconDirectory))
+		.pipe(gulp.dest(config.iconDirectory));
+});
+
+gulp.task('vendor_skins', ['bower'], function(){
+	return gulp.src(config.bowerSkinFiles)
+		.pipe(plumber())
+		.pipe(gulp.dest(config.skinDirectory));
 });
 
 gulp.task('vendor_merge', ['bower'], function(){
@@ -143,7 +149,7 @@ gulp.task('vendor_merge', ['bower'], function(){
 		.pipe(gulp.dest(config.libDirectory))
 });
 
-gulp.task('vendor', ['vendor_merge', 'vendor_icons_merge'], function(){
+gulp.task('vendor', ['vendor_merge', 'vendor_icons_merge', 'vendor_skins'], function(){
 //	return gulp.src('bower_components', {read: false})
 //		.pipe(clean());
 });
