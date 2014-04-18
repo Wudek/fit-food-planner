@@ -1,73 +1,35 @@
-div
+div.table-responsive
 	table.table.table-hover
 		thead
 			tr
-				th
-				th
-				th
+				th(colspan=3)
 				th.text-center Protein
 				th.text-center Carbs
 				th.text-center Fats
 				th.text-center Calories
-				th
 		tbody
-			tr
-				th Meal 1
-			tr
+			tr.mealHeader(ng-repeat-start='meal in diet.meals')
+				th(colspan=7) {{meal.name}}
+			tr(ng-repeat='foodItem in meal.foodItems')
+				td(ng-class="{'has-warning': !foodItem.food}")
+					select.form-control(ng-model='foodItem.food', ng-options='food.name for food in foods')
 				td
-					select.form-control
+					input.form-control(type='number', min='0', max='1000', ng-model='foodItem.quantity', quantity-format)
 				td
-					input.form-control
-				td
-					select.form-control
-				td.text-center 0
-				td.text-center 0
-				td.text-center 0
-				td.text-center 0
-				td
-					a.btn.btn-info.btn-block(type='button')
+					select.form-control(ng-model='foodItem.quantityType', ng-options='type for type in foodItem.quantityTypesCollection')
+				td.text-center {{foodItem.protein | number:1}}g
+				td.text-center {{foodItem.carbs| number:1}}g
+				td.text-center {{foodItem.fats | number:1}}g
+				td.text-center {{foodItem.calories | number:0}}
+				td.mealDeleteButton
+					a.btn.icon-button(ng-click='removeFoodItem(meal,foodItem)')
 						i.fa.fa-trash-o
-			tfoot
-				th Diet Total
-				th
-				th
-				th.text-center 0
-				th.text-center 0
-				th.text-center 0
-				th.text-center 0
-				th
-
-//div
-	.row
-		.col-m-6
-
-		.col-m-1.text-center
-			strong Protein
-		.col-m-1.text-center
-			strong Carbs
-		.col-m-1.text-center
-			strong Fats
-		.col-m-1.text-center
-			strong Calories
-		.col-m-2
-	.row
-		.col-m-12
-			hr
-	.row
-		.col-m-12
-			z-edit-diet(diet='diet', foods='foods')
-	.row
-		.col-m-12
-			hr
-	.row
-		.col-m-6
-			h4 Diet Total
-		.col-m-1.text-center
-			h5 {{diet.protein | number:1}}g
-		.col-m-1.text-center
-			h5 {{diet.carbs | number:1}}g
-		.col-m-1.text-center
-			h5 {{diet.fats | number:1}}g
-		.col-m-1.text-center
-			h5 {{diet.calories | number:0}}
-		.col-m-1
+			tr(ng-repeat-end)
+				td.mealMenu
+					i.fa.fa-plus.btn.btn-info(ng-click='addEmptyFoodItem(meal)')
+		tfoot
+			th(colspan=3) Diet Total
+			th.text-center {{diet.protein | number:1}}g
+			th.text-center {{diet.carbs | number:1}}g
+			th.text-center {{diet.fats | number:1}}g
+			th.text-center {{diet.calories | number:0}}

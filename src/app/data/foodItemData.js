@@ -3,31 +3,56 @@ class FoodItem extends BaseObject {
 	{
 		this.food = food;
 		this.quantity = quantity;
-		this.quantityType = quantityType;
-		this.quantityTypes ={
+		this.quantityType = quantityType === null ? this.quantityTypes.g : quantityType;
+	}
+
+	get quantityTypes()
+	{
+		return {
 			g: 'g',
 			ounce: 'ounce',
 			cup:'cup'
 		};
 	}
 
+	get food()
+	{
+		return this._food;
+	}
+
+	set food(value)
+	{
+		this._food = value;
+	}
+
 	get carbs(){
-		return this.food.carbs * this.quantityFactor;
+		return this.food ? this.food.carbs * this.quantityFactor : 0;
 	}
 
 	get protein()
 	{
-		return this.food.protein* this.quantityFactor;
+		return this.food ? this.food.protein* this.quantityFactor : 0;
 	}
 
 	get fats()
 	{
-		return this.food.fats * this.quantityFactor;
+		return this.food ? this.food.fats * this.quantityFactor : 0;
 	}
 
 	get calories()
 	{
 		return this.carbs * 4 + this.protein * 4 + this.fats * 9;
+	}
+
+	set quantityType(value)
+	{
+		this.adjustQuantity(this._quantityType, value);
+		this._quantityType = value;
+	}
+
+	get quantityType()
+	{
+		return this._quantityType;
 	}
 
 	get quantityTypesCollection()
@@ -57,8 +82,11 @@ class FoodItem extends BaseObject {
 
 	adjustQuantity(from, to)
 	{
-		var fromFactor = this.getQuantityFactorFor(from);
-		var toFactor = this.getQuantityFactorFor(to);
-		this.quantity *= fromFactor / toFactor;
+		if(from !== undefined && to !== undefined)
+		{
+			var fromFactor = this.getQuantityFactorFor(from);
+			var toFactor = this.getQuantityFactorFor(to);
+			this.quantity *= fromFactor / toFactor;
+		}
 	}
 }

@@ -1,6 +1,6 @@
 div(ng-controller="ClientsCtrl")
 	.container-fluid
-		.row
+		//.row
 			.col-xs-12
 				.jumbotron
 					h2 Clients
@@ -24,14 +24,24 @@ div(ng-controller="ClientsCtrl")
 						button.btn.btn-primary.btn-sm(type='button', ng-click='clearFilter()') Clear
 
 			.col-xs-12
-				.list-group
-					a.list-group-item.clientListItem(ng-repeat='client in filteredClients  =(clients | filter:filterBy())', href='#/client/{{client.id}}')
-						i.fa.fa-male(ng-if='client.isMale')
-						i.fa.fa-female(ng-if='!client.isMale')
-						p {{client.name}}
-						span.badge.badge-primary(ng-if='client.category') {{client.category}}
-						span.badge.badge-primary {{client.weight}} lbs
-						span.badge.badge-primary {{client.height}} cm
-						//a#clientListDelete(ng-click='removeClient(client)')
-							i.fa.fa-trash-o
-					a.list-group-item(ng-if='filteredClients.length === 0') No clients
+				table.table
+					tbody
+						tr(ng-repeat='client in filteredClients  =(clients | filter:filterBy())')
+							td
+								a.list-group-item.clientListItem(href='#/client/{{client.id}}')
+									i.fa.fa-male(ng-if='client.isMale')
+									i.fa.fa-female(ng-if='!client.isMale')
+									p {{client.name}}
+									span.badge.badge-primary(ng-if='client.category') {{client.category}}
+									span.badge.badge-primary {{client.weight}} lbs
+									span.badge.badge-primary {{client.height}} cm
+							td#clientListDelete
+								a.btn.icon-button(ng-click='removeClient(client)')
+									i.fa.fa-trash-o
+						tr(ng-if='filteredClients.length === 0')
+							td
+								h4.list-group-item No clients
+			.col-xs-12
+				a.btn.btn-lg.btn-info#addNewClient(ng-click='addRandomClient()')
+					i.fa.fa-lg.fa-plus
+					| New client

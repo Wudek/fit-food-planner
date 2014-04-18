@@ -17,52 +17,29 @@ angular.module( 'client', [])
 //			}
 //		);
 
-//		function changeToDiet()
-//		{
-//			$scope.isCurrentDiet = true;
-//			$scope.isLikes = $scope.isDislikes = $scope.isHistory = false;
-//		}
-//
-//		function changeToLikes()
-//		{
-//			$scope.isLikes = true;
-//			$scope.isCurrentDiet = $scope.isDislikes = $scope.isHistory = false;
-//		}
-//
-//		function changeToDislikes()
-//		{
-//			$scope.isDislikes = true;
-//			$scope.isCurrentDiet = $scope.isLikes = $scope.isHistory = false;
-//		}
-//
-//		function changeToHistory()
-//		{
-//			$scope.isHistory = true;
-//			$scope.isCurrentDiet = $scope.isLikes = $scope.isDislikes = false;
-//		}
-		//		$scope.changeToDiet = changeToDiet;
-		//		$scope.changeToLikes = changeToLikes;
-		//		$scope.changeToDislikes = changeToDislikes;
-		//		$scope.changeToHistory = changeToHistory;
-		//		changeToDiet();
+		$scope.dietDetailsView = true;
+		$scope.dietChartsView = false;
+		$scope.clientInfoView = false;
 
-		function changeToCurrentDietDetails()
-		{
-			$scope.currentDietDetails = true;
-			$scope.currentDietMealBreakdown = false;
-		}
-
-		function changeToCurrentDietMealBreakdown()
-		{
-			$scope.currentDietDetails = false;
-			$scope.currentDietMealBreakdown = true;
-		}
-
-		$scope.changeToCurrentDietDetails = changeToCurrentDietDetails;
-		$scope.changeToCurrentDietMealBreakdown = changeToCurrentDietMealBreakdown;
-
-		changeToCurrentDietDetails();
+		$scope.toDietDetails= () => {
+			$scope.dietDetailsView = true;
+			$scope.dietChartsView = false;
+			$scope.clientInfoView = false;
+		};
+		$scope.toDietCharts = () => {
+			$scope.dietDetailsView = false;
+			$scope.dietChartsView = true;
+			$scope.clientInfoView = false;
+		};
+		$scope.toClientInfo = () => {
+			$scope.dietDetailsView = false;
+			$scope.dietChartsView = false;
+			$scope.clientInfoView = true;
+		};
 
 		$scope.foods = proxyClientService.getFoods();
 		$scope.diet = $scope.client.getCurrentDiet();
+		$scope.addEmptyMeal = () => proxyClientService.addEmptyMeal($scope.diet);
+		$scope.addRandomMeal = () => proxyClientService.addRandomMeal($scope.diet);
+		$scope.clearDiet = () => $scope.diet.clearMeals();
 	});

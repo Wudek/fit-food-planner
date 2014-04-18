@@ -31,10 +31,10 @@
 
 #clientListDelete
 {
-  display: flex;
-  align-items: center;
-  i{
-    margin   : 0.6rem 1.0rem;
-    font-size: 2rem;
-  }
+  height:100%;
+  vertical-align: middle;
+}
+#addNewClient
+{
+  width:100%;
 }

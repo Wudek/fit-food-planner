@@ -1,18 +1,20 @@
 div(ng-controller="ClientCtrl")
 	z-client-profile-card(client='client')
 	.btn-group#actionList
-		a.btn.btn-primary(type='button')
-			i.fa.fa-list Add Meal
-		a.btn.btn-primary(type='button')
-			i.fa.fa-list Add Meal2
+		a.btn.btn-primary(ng-click='addEmptyMeal()')
+			i.fa.fa-list New Meal
+		a.btn.btn-primary(ng-click='addRandomMeal()')
+			i.fa.fa-list New Random Meal
+		a.btn.btn-primary(ng-click='clearDiet()')
+			i.fa.fa-list Clear Diet
 	.panel
 		ul.nav.nav-tabs
-			li(ng-class='{active: currentDietDetails}')
-				a(ng-class='{active: currentDietDetails}', ng-click='changeToCurrentDietDetails()') Diet Details
-			li(ng-class='{active: currentDietMealBreakdown}')
-				a(ng-click='changeToCurrentDietMealBreakdown()') Diet Breakdown
-		.tab-content
-			.tab-pane(ng-class='{active: currentDietDetails}', ng-if='currentDietDetails')
-				z-diet-details(diet='diet', foods='foods')
-			.tab-pane.small-bot-padding(ng-class='{active: currentDietMealBreakdown}', ng-if='currentDietMealBreakdown')
-				z-diet-chart(diet='diet')
+			li(ng-class='{active: dietDetailsView}')
+				a(ng-click='toDietDetails()') Diet Details
+			li(ng-class='{active: dietChartsView}')
+				a(ng-click='toDietCharts()') Diet Breakdown
+			li(ng-class='{active: clientInfoView}')
+				a(ng-click='toClientInfo()') Client Info
+		z-diet-details(diet='diet', foods='foods', ng-show='dietDetailsView')
+		z-diet-chart.small-bot-padding(diet='diet', ng-show='dietChartsView')
+		z-client-info(client='client', ng-show='clientInfoView')

@@ -3,6 +3,12 @@ angular.module('directives')
 	{
 		function link($scope, element, attributes)
 		{
+			$scope.removeFoodItem = (meal,foodItem) => {
+				meal.removeFoodItem(foodItem);
+			};
+			$scope.addEmptyFoodItem = (meal) =>{
+				meal.addFoodItem(new FoodItem());
+			};
 		}
 
 

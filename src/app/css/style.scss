@@ -12,7 +12,7 @@
 //}
 
 #content{
-  padding: 10px;
+  padding: 10px 15px;
 }
 
 .right-align
@@ -80,4 +80,39 @@ button i:before
 label div
 {
   margin-right: 5px !important;
+}
+
+td
+{
+  min-width: 50px;
+}
+
+td select,input
+{
+  min-width: 100px;
+}
+
+.icon-button
+{
+  @extend %flexbox;
+  @include justify-content(center);
+}
+
+.mealHeader
+{
+  td,th:hover{
+    background-color: white !important;;
+  }
+}
+
+.mealMenu
+{
+  background-color: white !important;;
+  border-top: 0px !important;
+}
+
+.mealDeleteButton
+{
+  background-color: white !important;;
+  border-top: 0px !important;
 }

@@ -3,9 +3,9 @@ angular.module( 'clients', [])
 	.controller( 'ClientsCtrl', function ( $scope , proxyClientService) {
 
 		$scope.clients = proxyClientService.getClients();
-		$scope.addRandom = proxyClientService.addRandom;
 		$scope.removeClient = proxyClientService.removeClient;
 		$scope.categories = proxyClientService.getClientCategories();
+		$scope.addRandomClient = proxyClientService.addRandomClient;
 
 		function defaultFilter()
 		{

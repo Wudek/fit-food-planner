@@ -16,6 +16,20 @@ angular.module('services').factory('proxyClientService', function ()
 	var randomFemaleName = () => _.sample([
 		'Jane Doe',
 		'Katie Holmes']);
+
+	var foods = [
+		new Food('rice', 2.6, 23, 0.9),
+		new Food('chicken breast', 21, 0, 9),
+		new Food('ground beef', 29, 0, 8),
+		new Food('broccoli', 2.8, 7, 0.4),
+		new Food('celery', 0.7, 3, 0.2),
+		new Food('sweet potato', 1.5, 20, 0),
+		new Food('salmon', 20, 0, 13),
+		new Food('whole wheat pasta', 5, 27, 1),
+		new Food('blueberry', 0.7, 14, 0.3),
+		new Food('almonds', 21, 22, 49),
+		new Food('peanut butter', 25, 20, 50)];
+
 	var randomMaleWeight = () => _.random(150, 250);
 	var randomFemaleWeight = () => _.random(100, 180);
 	var randomWeight = (isMale) => isMale ? randomMaleWeight() : randomFemaleWeight();
@@ -33,7 +47,6 @@ angular.module('services').factory('proxyClientService', function ()
 	{
 		return existingClient.id === client.id;
 	});
-	var modifyClient = () => 0;
 	var getClient = (clientID) => _.find(clients, {'id' : clientID});
 	var addRandomMaleClient = () => addClient(createClient(randomMaleName(), true));
 	var addRandomFemaleClient = () => addClient(createClient(randomFemaleName(), false));
@@ -43,23 +56,8 @@ angular.module('services').factory('proxyClientService', function ()
 		addRandomDiet(client);
 		return client;
 	};
-	var foods = [
-		new Food('rice', 2.6, 23, 0.9),
-		new Food('chicken breast', 21, 0, 9),
-		new Food('ground beef', 29, 0, 8),
-		new Food('broccoli', 2.8, 7, 0.4),
-		new Food('celery', 0.7, 3, 0.2),
-		new Food('sweet potato', 1.5, 20, 0),
-		new Food('salmon', 20, 0, 13),
-		new Food('whole wheat pasta', 5, 27, 1),
-		new Food('blueberry', 0.7, 14, 0.3),
-		new Food('almonds', 21, 22, 49),
-		new Food('peanut butter', 25, 20, 50)];
 	var getRandomFood = () => _.sample(foods);
-	var getRandomFoodItem = () =>
-	{
-		return new FoodItem(getRandomFood(), _.random(10, 100), 'g');
-	};
+	var getRandomFoodItem = () =>new FoodItem(getRandomFood(), _.random(10, 100), 'g');
 	var getRandomMeal = (name) =>
 	{
 		var meal = new Meal(name);
@@ -69,22 +67,38 @@ angular.module('services').factory('proxyClientService', function ()
 		}
 		return meal;
 	};
-	var getRandomDiet = (name) =>
+
+	var addMeal = (diet, meal) =>
+	{
+		diet.addMeal(meal);
+	};
+
+	var addEmptyMeal = (diet) =>
+	{
+		addMeal(diet, new Meal('Meal ' + (diet.mealCount + 1).toString()));
+	};
+
+	var addRandomMeal = (diet) =>
+	{
+		addMeal(diet, getRandomMeal('Meal ' + (diet.mealCount + 1).toString()));
+	};
+
+	var getRandomDiet = () =>
 	{
 		var diet = new Diet(name);
 		for (var i = 0; i < _.random(3, 6); i++)
 		{
-			diet.addMeal(getRandomMeal('Meal ' + (i +1).toString()));
+			addRandomMeal(diet);
 		}
 		return diet;
 	};
+
 	var addRandomDiet = (client) =>
 	{
-
 		client.addDiet(getRandomDiet('diet ' + (client.diets.length + 1).toString()));
 	};
 
-	function fetchClientDetails(clientID)
+	var fetchClientDetails = (clientID) =>
 	{
 		return new Promise(function (resolve, reject)
 		{
@@ -101,7 +115,7 @@ angular.module('services').factory('proxyClientService', function ()
 				}
 			}, delay);
 		});
-	}
+	};
 
 	addRandomClient();
 	addRandomClient();
@@ -112,9 +126,12 @@ angular.module('services').factory('proxyClientService', function ()
 		getClientCategories : () => clientCategories,
 		getFoods : () => foods,
 		addClient : addClient,
+		addRandomClient : addRandomClient,
 		removeClient : removeClient,
 		getClient : getClient,
 		fetchClientDetails : fetchClientDetails,
-		addRandom : addRandomClient
+		addRandom : addRandomClient,
+		addEmptyMeal : addEmptyMeal,
+		addRandomMeal : addRandomMeal
 	};
 });

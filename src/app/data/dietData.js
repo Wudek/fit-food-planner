@@ -10,6 +10,15 @@ class Diet extends BaseObject {
 		this.meals.push(meal);
 	}
 
+	clearMeals()
+	{
+		this.meals = [];
+	}
+
+	get mealCount(){
+		return this.meals.length;
+	}
+
 	get protein(){
 		return _.reduce(this.meals, (sum, meal) =>meal.protein + sum , 0);
 	}
