@@ -55,5 +55,6 @@ module.exports = {
 		'bower_components/stringjs/lib/string.js',
 		'bower_components/bluebird/js/browser/bluebird.js',
 		'bower_components/modernizr/modernizr.js',
-		'bower_components/traceur-runtime/traceur-runtime.js']
+		'bower_components/traceur-runtime/traceur-runtime.js',
+		'bower_components/FileSaver/FileSaver.js']
 };

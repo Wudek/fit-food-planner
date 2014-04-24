@@ -7,6 +7,8 @@ div(ng-controller="ClientCtrl")
 			i.fa.fa-list New Random Meal
 		a.btn.btn-primary(ng-click='clearDiet()')
 			i.fa.fa-list Clear Diet
+		a.btn.btn-primary(ng-click='exportDiet()')
+			i.fa.fa-save Export Diet
 	.panel
 		ul.nav.nav-tabs
 			li(ng-class='{active: dietDetailsView}')

@@ -9,7 +9,17 @@ div.table-responsive
 				th.text-center Calories
 		tbody
 			tr.mealHeader(ng-repeat-start='meal in diet.meals')
-				th(colspan=7) {{meal.name}}
+				th
+					input.form-control(ng-model='meal.name')
+				th(colspan=2)
+				td.text-center
+					strong {{meal.protein | number:1}}g
+				td.text-center
+					strong {{meal.carbs | number:1}}g
+				td.text-center
+					strong {{meal.fats | number:1}}g
+				td.text-center
+					strong {{meal.calories | number:1}}
 			tr(ng-repeat='foodItem in meal.foodItems')
 				td(ng-class="{'has-warning': !foodItem.food}")
 					select.form-control(ng-model='foodItem.food', ng-options='food.name for food in foods')

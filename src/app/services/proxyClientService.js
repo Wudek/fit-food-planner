@@ -17,18 +17,30 @@ angular.module('services').factory('proxyClientService', function ()
 		'Jane Doe',
 		'Katie Holmes']);
 
+	//constructor(name, protein, carbs, fats, gramsPerCup, gramsPerUnit, gramsPerTablespoon = 14, gramsPerOunce = 28)
 	var foods = [
-		new Food('rice', 2.6, 23, 0.9),
-		new Food('chicken breast', 21, 0, 9),
-		new Food('ground beef', 29, 0, 8),
-		new Food('broccoli', 2.8, 7, 0.4),
-		new Food('celery', 0.7, 3, 0.2),
-		new Food('sweet potato', 1.5, 20, 0),
-		new Food('salmon', 20, 0, 13),
-		new Food('whole wheat pasta', 5, 27, 1),
-		new Food('blueberry', 0.7, 14, 0.3),
-		new Food('almonds', 21, 22, 49),
-		new Food('peanut butter', 25, 20, 50)];
+		new Food('Brown Rice Cooked', 0.026, 0.23, 0.009, 195, 0),
+		new Food('Chicken Breast', 0.31, 0, 0.04, 140, 86 * 2),
+		new Food('Extra Lean Ground Beef', 0.29, 0, 0.08, 0, 0),
+		new Food('Broccoli', 0.03, 0.07, 0,91, 0),
+		new Food('Celery', 0.01, 0.03, 0.01, 101, 0),
+		new Food('Sweet Potato', 0.02, 0.21, 0, 200, 114),
+		new Food('Egg Whites', 0.11, 0.01, 0, 243, 0),
+		new Food('Avocado', 0.02, 0.09, 0.15, 150, 201),
+		new Food('0% Plain Greek Yogurt', 0.11, 0.4, 0, 0, 500),
+		new Food('Rice Cakes', 0.08, 0.82, 0.028, 0, 9),
+		new Food('Tilapia', 0.26, 0, 0.026, 0, 87),
+		new Food('Salmon', 0.2, 0, 0.13, 0, 396),
+		new Food('Oatmeal',0.13, 0.69, 0.07, 81, 0),
+		new Food('Whole Wheat Pasta', 0.05, 0.27, 0.01, 140, 0),
+		new Food('Blueberries', 0.01, 0.14, 0, 148, 1.36),
+		new Food('Almonds', 0.21, 0.22, 0.49, 143, 1),
+		new Food('Protein Bar', 19, 18.5, 3.5, 0, 1),
+		new Food('P28 Bread Slice', 0.298, 0.255, 0.074, 0, 47),
+		new Food('P28 Peanut Butter', 0.42, 0.21, 0.39, 0, 0),
+		new Food('Whey Protein Shake', 24, 3, 1, 0, 1),
+		new Food('Banana', 0.01, 0.23, 0, 150, 118),
+		new Food('Natural Peanut Butter', 0.31, 0.19, 0.5, 0, 0)];
 
 	var randomMaleWeight = () => _.random(150, 250);
 	var randomFemaleWeight = () => _.random(100, 180);
@@ -95,7 +107,7 @@ angular.module('services').factory('proxyClientService', function ()
 
 	var addRandomDiet = (client) =>
 	{
-		client.addDiet(getRandomDiet('diet ' + (client.diets.length + 1).toString()));
+		client.diet = getRandomDiet('diet');
 	};
 
 	var fetchClientDetails = (clientID) =>

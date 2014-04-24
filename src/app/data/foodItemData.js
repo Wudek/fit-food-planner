@@ -11,7 +11,9 @@ class FoodItem extends BaseObject {
 		return {
 			g: 'g',
 			ounce: 'ounce',
-			cup:'cup'
+			cup:'cup',
+			tablespoon:'tablespoon',
+			unit:'unit'
 		};
 	}
 
@@ -57,7 +59,7 @@ class FoodItem extends BaseObject {
 
 	get quantityTypesCollection()
 	{
-		return [this.quantityTypes.g, this.quantityTypes.ounce, this.quantityTypes.cup];
+		return _.keys(this.quantityTypes);
 	}
 
 	get quantityFactor()
@@ -67,15 +69,19 @@ class FoodItem extends BaseObject {
 
 	getQuantityFactorFor(quantityType)
 	{
-		//food macros are always calculated by 100g
+		//food macros are always calculated per gram
 		switch(quantityType)
 		{
 			case this.quantityTypes.g:
-				return this.quantity / 100;
+				return this.quantity;
 			case this.quantityTypes.ounce:
-				return this.quantity / 3.5274;
+				return this.quantity * this.food.gramsPerOunce;
 			case this.quantityTypes.cup:
-				return this.quantity * 1.28;
+				return this.quantity * this.food.gramsPerCup;
+			case this.quantityTypes.unit:
+				return this.quantity * this.food.gramsPerUnit;
+			case this.quantityTypes.tablespoon:
+				return this.quantity * this.food.gramsPerTablespoon;
 		}
 		return 0;
 	}

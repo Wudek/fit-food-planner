@@ -6,4 +6,4 @@ node_modules/
 coverage/
 build/
 bower_components/
-mongodb/data/**
+mongodb/

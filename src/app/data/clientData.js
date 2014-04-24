@@ -7,18 +7,6 @@ class Client extends BaseObject {
 		this.category = category;
 		this.height = height;
 		this.weight = weight;
-		this.currentDietIndex = -1;
-		this.diets = [];
-	}
-
-	addDiet(diet)
-	{
-		this.diets.push(diet);
-		this.currentDietIndex === -1 ? this.currentDietIndex = 0 : null;
-	}
-
-	getCurrentDiet()
-	{
-		return this.currentDietIndex === -1 ? null : this.diets[this.currentDietIndex];
+		this.diet = null;
 	}
 }
