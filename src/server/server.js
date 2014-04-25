@@ -1,6 +1,5 @@
 'use strict';
-//Configure logging
-var logger = module.exports.logger = require('./config/logging')();
+var logger = require('./logger');
 //Fallback to make sure an environment is set
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
@@ -9,8 +8,9 @@ function startServer()
 	logger.info('Starting Server');
 	//Configure express, routing and api
 	var app = require('express')();
-	require('./config/express')(app);
-	require('./config/routes')(app);
+	require('./express')(app);
+	require('./routes')(app);
+	require('./db/test')();
 
 	//Start express
 	var port = require('./config/config').port;
@@ -18,8 +18,8 @@ function startServer()
 	logger.info('Server started on port ' + port);
 }
 
-startServer();
-//require('./config/db').initialize().then(startServer);
+//startServer();
+require('./db').initialize().then(startServer);
 
 //var Promise = require('bluebird');
 //

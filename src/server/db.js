@@ -1,14 +1,16 @@
 'use strict';
 
 var Promise = require('bluebird');
+var logger = require('./logger');
+var config = require('./config/config');
+
+
 
 module.exports.initialize = function()
 {
 	return new Promise(function(f, reject)
 	{
-		var config = require('./config');
 		var mongoose = require('mongoose');
-		var logger = require('../server').logger;
 
 		logger.info('Connection initiated to database');
 

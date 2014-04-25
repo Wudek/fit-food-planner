@@ -1,6 +1,6 @@
 'use strict';
 var express = require('express');
-var config = require('./config');
+var config = require('./config/config');
 var cookieParser = require('cookie-parser');
 var methodOverride = require('method-override');
 var liveReload = require('connect-livereload');
