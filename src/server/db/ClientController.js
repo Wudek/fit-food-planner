@@ -19,5 +19,5 @@ module.exports.listClients = function()
 {
 	Client.find().exec(function(err, clients)
 	{
-	})
+	});
 };
