@@ -18,32 +18,4 @@ function startServer()
 	logger.info('Server started on port ' + port);
 }
 
-//startServer();
 require('./db').initialize().then(startServer);
-
-//var Promise = require('bluebird');
-//
-//function delay(ms){
-//	return new Promise(function(f){
-//		setTimeout(f, ms);
-//	});
-//}
-//
-//var start = new Date();
-//
-//function traceTime()
-//{
-//	console.log(new Date() - start);
-//}
-//
-//traceTime();
-//
-//function coolDelay(ms){
-//	return delay(ms).then(function(){traceTime();});
-//}
-
-//coolDelay(1000);
-//coolDelay(5000);
-
-
-//Promise.delay(2000).then(traceTime);

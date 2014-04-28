@@ -7,7 +7,8 @@ var quantityTypes = [
 	'ounce',
 	'cup',
 	'tablespoon',
-	'unit'];
+	'unit'
+];
 
 var foodSchema = new Schema(
 	{
@@ -15,21 +16,22 @@ var foodSchema = new Schema(
 		protein            : Number,
 		carbs              : Number,
 		fats               : Number,
-		gramsPerCup        : { type: Number, default: 0 },
-		gramsPerUnit       : { type: Number, default: 0 },
-		gramsPerTablespoon : { type: Number, default: 0 },
-		gramsPerOunce      : { type: Number, default: 0 }
+		gramsEnabled       : {type : Boolean, default : true},
+		gramsPerCup        : { type : Number, default : 0 },
+		gramsPerUnit       : { type : Number, default : 0 },
+		gramsPerTablespoon : { type : Number, default : 0 },
+		gramsPerOunce      : { type : Number, default : 0 }
 	}
 );
 var clientSchema = new Schema(
 	{
 		name     : String,
 		male     : Boolean,
-		category : { type: String, default: '' },
+		category : { type : String, default : '' },
 		height   : Number,
 		weight   : Number,
 		diet     : {
-			name  : { type: String, default: '' },
+			name  : { type : String, default : '' },
 			meals : [
 				{
 					name  : String,
